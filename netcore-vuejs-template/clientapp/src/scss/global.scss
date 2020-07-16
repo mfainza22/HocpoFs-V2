@@ -1,0 +1,37 @@
+.children-mr-2,
+.v-toolbar.children-mr-2 > .v-toolbar__content {
+  & > * {
+    margin-right: 12px;
+  }
+
+  & > *:last-child {
+    margin-right: 0;
+  }
+}
+
+.details-table.v-data-table tbody tr {
+  cursor: pointer;
+  &:nth-child(even):not(.v-data-table__selected) {
+    background: #fafafa;
+  }
+  &:hover {
+    transition: background 0.15s;
+  }
+}
+.details-table.theme--light.v-data-table tbody tr {
+  &:hover:not(.v-data-table__expanded__content):not(.v-data-table__empty-wrapper) {
+    background: #f0f0f0;
+  }
+}
+.details-table.theme--dark.v-data-table tbody tr {
+  &:hover:not(.v-data-table__expanded__content):not(.v-data-table__empty-wrapper) {
+    background: #232323;
+    transition: background 0.15s;
+  }
+}
+
+.details-table-pagination.theme--light.v-pagination {
+  .v-pagination__item--active {
+    background-color: red;
+  }
+}

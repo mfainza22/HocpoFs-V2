@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>WeighingSystemCore</RootNamespace>
+    <AssemblyName>WeighingSystemCore</AssemblyName>
+    <OutputType>Exe</OutputType>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="VueCliMiddleware" Version="3.0.0" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="clientapp\dist\css\app.e59f5a1a.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="clientapp\dist\favicon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="clientapp\dist\img\logo.82b9c7a5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="clientapp\dist\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="clientapp\dist\js\app.a3985569.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="clientapp\dist\js\chunk-vendors.2c5fa0d0.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="clientapp\src\views\NewFolder\" />
+    <Folder Include="Models\" />
+    <Folder Include="IRepositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
+    <ProjectReference Include="..\WeighingSystemCoreHelpers\WeighingSystemCoreHelpers.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,293 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "serialCode": "652001",
+      "description": "Weight Indicator GSE-460 Brand New",
+      "brand": "GSE",
+      "category": "Electronics",
+      "initStock": 1,
+      "onStock": 1,
+      "unit": "PC",
+      "img": "img-001.png",
+      "notes": "Duo prompta veritus efficiantur id, quem nibh mea cu. Ex interpretaris conclusionemque eum. Vim doctus iriure constituto ne, te nostro facilis salutandi quo. Pro wisi solum facer ea. Ex alii nullam causae mei..",
+      "serialized": true
+    },
+    {
+      "id": 2,
+      "serialCode": "652002",
+      "description": "Weight Indicator Avery-Weigh ZM-405 Brand New",
+      "brand": "Avery Weigh",
+      "category": "Electronics",
+      "initStock": 1,
+      "onStock": 1,
+      "unit": "PC",
+      "img": "img-002.png",
+      "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac turpis egestas sed tempus urna et. Id aliquet lectus proin nibh nisl condimentum.",
+      "serialized": true
+    },
+    {
+      "id": 3,
+      "serialCode": "312328-0221",
+      "description": "LX-310 Printer Brand New",
+      "brand": "Epson",
+      "category": "Electronics",
+      "initStock": 1,
+      "onStock": 1,
+      "unit": "PC",
+      "img": "img-003.png",
+      "notes": "In usu ignota mandamus, nam quis scripta cu. Dicant ubique dolores his an, ne vide fugit ocurreret pri, eos cu suas impetus. Sed eu omnium albucius, eius deseruisse temporibus in mel. Movet sanctus singulis vis cu, pro an tacimates temporibus. Unum quando scaevola an sit. At perpetua salutandi gubergren duo, quodsi vocent signiferumque at sed.",
+      "serialized": true
+    },
+    {
+      "id": 4,
+      "serialCode": "318011",
+      "description": "Weight Indicator Rinstrum-323 Brand New",
+      "category": "Electronics",
+      "brand": "Rinstrum",
+      "initStock": 1,
+      "onStock": 1,
+      "unit": "PC",
+      "img": "img-004.png",
+      "notes": "",
+      "serialized": true
+    },
+    {
+      "id": 5,
+      "serialCode": "328023",
+      "description": "Weight Indicator Rinstrum-323 Brand New",
+      "category": "Electronics",
+      "brand": "Rinstrum",
+      "initStock": 1,
+      "onStock": 1,
+      "unit": "PC",
+      "img": "img-005.png",
+      "notes": "",
+      "serialized": true
+    },
+    {
+      "id": 6,
+      "serialCode": "201702211012aaaa",
+      "description": "Desktop Computer ASUS i3",
+      "category": "Electronics",
+      "brand": "MSI",
+      "initStock": 1,
+      "onStock": 1,
+      "unit": "PC",
+      "img": "img-006.png",
+      "notes": "",
+      "serialized": false
+    },
+    {
+      "id": 7,
+      "serialCode": "201702211113",
+      "description": "Desktop Computer ASUS i5",
+      "category": "Electronics",
+      "brand": "MSI",
+      "initStock": 1,
+      "onStock": 1,
+      "unit": "PC",
+      "img": "img-007.png",
+      "serialized": false
+    },
+    {
+      "id": 8,
+      "serialCode": "201803220111",
+      "description": "Belden Wire 2S 1/8",
+      "brand": "Belden",
+      "category": "Wires And Cables",
+      "initStock": 1,
+      "onStock": 1,
+      "unit": "FEET",
+      "img": "img-008.png",
+      "serialized": false
+    },
+    {
+      "id": 9,
+      "serialCode": "201803220345",
+      "description": "Belden Wire 2S 1/4",
+      "category": "Wires And Cables",
+      "brand": "Belden",
+      "initStock": 1,
+      "onStock": 1,
+      "unit": "FEET",
+      "img": "img-009.png",
+      "serialized": false
+    },
+    {
+      "id": 10,
+      "serialCode": "20180322035822222",
+      "description": "Royal Cord 4S 3/4",
+      "category": "Wires And Cables",
+      "brand": "Royal",
+      "initStock": 1,
+      "onStock": 0,
+      "unit": "FEET",
+      "img": "img-010.png",
+      "serialized": false
+    },
+    {
+      "id": 11,
+      "serialCode": "201803220358",
+      "description": "Cat6 Lan Cable",
+      "category": "Wires And Cables",
+      "brand": "Royal",
+      "initStock": 1,
+      "onStock": 1,
+      "unit": "FEET",
+      "img": "img-011.png",
+      "serialized": false
+    },
+    {
+      "id": 12,
+      "serialCode": "201808101530",
+      "description": "Drill Large Makita (Blue)",
+      "category": "Electronic Tools",
+      "brand": "Makita",
+      "initStock": 1,
+      "onStock": 1,
+      "unit": "PC",
+      "img": "img-012.png",
+      "serialized": false
+    },
+    {
+      "id": 13,
+      "serialCode": "201809061012",
+      "description": "Drill Large Small (Green)",
+      "category": "Electronic Tools",
+      "brand": "Black&Decker",
+      "initStock": 1,
+      "onStock": 1,
+      "unit": "PC",
+      "img": "img-013.png",
+      "serialized": false
+    },
+    {
+      "id": 14,
+      "serialCode": "201809061139",
+      "description": "Heat Gun Black&Decker (Red)",
+      "category": "Electronic Tools",
+      "brand": "Black%Decker",
+      "initStock": 1,
+      "onStock": 1,
+      "unit": "PC",
+      "img": "img-014.png",
+      "serialized": false
+    },
+    {
+      "id": 15,
+      "serialCode": "201809061154",
+      "description": "Wrench Big",
+      "category": "Hand Tools",
+      "brand": "",
+      "initStock": 1,
+      "onStock": 1,
+      "unit": "PC",
+      "img": "img-015.png",
+      "serialized": false
+    },
+    {
+      "id": 16,
+      "serialCode": "201809091150",
+      "description": "Boyzen Paint (Yellow) BIG",
+      "category": "Paints",
+      "brand": "Boyzen",
+      "initStock": 20,
+      "onStock": 20,
+      "unit": "CAN",
+      "img": "img-016.png",
+      "serialized": false
+    },
+    {
+      "id": 17,
+      "serialCode": "201809090450",
+      "description": "Boyzen Paint (Yellow) SMALL",
+      "category": "Paints",
+      "brand": "Boyzen",
+      "initStock": 20,
+      "onStock": 20,
+      "unit": "CAN",
+      "img": "img-017.png",
+      "serialized": false
+    },
+    {
+      "id": 18,
+      "serialCode": "201809090515",
+      "description": "Loadcell 75K",
+      "category": "Electronics",
+      "brand": "Artech",
+      "initStock": 1,
+      "onStock": 1,
+      "unit": "PC",
+      "img": "img-018.png",
+      "serialized": false
+    },
+    {
+      "id": 19,
+      "description": "gdgasdga",
+      "category": "3 Hand Tools",
+      "brand": "MSI",
+      "serialCode": "231231",
+      "initStock": "322",
+      "onStock": 0,
+      "notes": "",
+      "img": "no-img.png"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "description": "1 Electronics"
+    },
+    {
+      "id": 2,
+      "description": "2 Electronic Tools"
+    },
+    {
+      "id": 3,
+      "description": "3 Hand Tools"
+    },
+    {
+      "id": 4,
+      "description": "4 Wires and Cables"
+    },
+    {
+      "id": 5,
+      "description": "5 Paints"
+    }
+  ],
+  "brands": [
+    {
+      "id": 1,
+      "description": "GSE"
+    },
+    {
+      "id": 2,
+      "description": "Artech"
+    },
+    {
+      "id": 3,
+      "description": "KELI"
+    },
+    {
+      "id": 4,
+      "description": "Epson"
+    },
+    {
+      "id": 5,
+      "description": "MSI"
+    },
+    {
+      "id": 6,
+      "description": "Asus"
+    },
+    {
+      "id": 7,
+      "description": "Makita"
+    },
+    {
+      "id": 7,
+      "description": "Black&Decker"
+    }
+  ]
+}

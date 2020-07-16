@@ -1,0 +1,9 @@
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\DataAccessLayer\bin\Release\netstandard2.0\win10-x64\DataAccessLayer.deps.json
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\DataAccessLayer\bin\Release\netstandard2.0\win10-x64\DataAccessLayer.dll
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\DataAccessLayer\bin\Release\netstandard2.0\win10-x64\DataAccessLayer.pdb
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\win10-x64\DataAccessLayer.csprojAssemblyReference.cache
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\win10-x64\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\win10-x64\DataAccessLayer.AssemblyInfoInputs.cache
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\win10-x64\DataAccessLayer.AssemblyInfo.cs
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\win10-x64\DataAccessLayer.dll
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\win10-x64\DataAccessLayer.pdb

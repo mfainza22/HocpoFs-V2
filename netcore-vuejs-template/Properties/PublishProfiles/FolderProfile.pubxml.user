@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\www\netcorevuejs</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="clientapp/dist/css/app.e59f5a1a.css">
+      <publishTime>07/09/2020 08:45:40</publishTime>
+    </File>
+    <File Include="clientapp/dist/favicon.ico">
+      <publishTime>07/09/2020 08:45:40</publishTime>
+    </File>
+    <File Include="clientapp/dist/img/logo.82b9c7a5.png">
+      <publishTime>07/09/2020 08:45:40</publishTime>
+    </File>
+    <File Include="clientapp/dist/index.html">
+      <publishTime>07/09/2020 08:45:40</publishTime>
+    </File>
+    <File Include="clientapp/dist/js/app.a3985569.js">
+      <publishTime>07/09/2020 08:45:40</publishTime>
+    </File>
+    <File Include="clientapp/dist/js/app.a3985569.js.map">
+      <publishTime>07/09/2020 08:45:40</publishTime>
+    </File>
+    <File Include="clientapp/dist/js/chunk-vendors.2c5fa0d0.js">
+      <publishTime>07/09/2020 08:45:40</publishTime>
+    </File>
+    <File Include="clientapp/dist/js/chunk-vendors.2c5fa0d0.js.map">
+      <publishTime>07/09/2020 08:45:40</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,47 @@
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\WeighingSystemCoreHelpers\bin\Debug\netstandard2.0\WeighingSystemCoreHelpers.deps.json
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\WeighingSystemCoreHelpers\bin\Debug\netstandard2.0\WeighingSystemCoreHelpers.dll
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\WeighingSystemCoreHelpers\bin\Debug\netstandard2.0\WeighingSystemCoreHelpers.pdb
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\WeighingSystemCoreHelpers\bin\Debug\netstandard2.0\DataAccessLayer.dll
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\WeighingSystemCoreHelpers\bin\Debug\netstandard2.0\DataAccessLayer.pdb
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.csprojAssemblyReference.cache
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.csproj.CoreCompileInputs.cache
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.AssemblyInfoInputs.cache
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.AssemblyInfo.cs
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.csproj.CopyComplete
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.dll
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.pdb
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\bin\Debug\netstandard2.0\WeighingSystemCoreHelpers.deps.json
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\bin\Debug\netstandard2.0\WeighingSystemCoreHelpers.dll
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\bin\Debug\netstandard2.0\WeighingSystemCoreHelpers.pdb
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\bin\Debug\netstandard2.0\DataAccessLayer.dll
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\bin\Debug\netstandard2.0\DataAccessLayer.pdb
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.csprojAssemblyReference.cache
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.AssemblyInfoInputs.cache
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.AssemblyInfo.cs
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.csproj.CopyComplete
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.dll
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.pdb
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\bin\Debug\netstandard2.0\WeighingSystemCoreHelpers.deps.json
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\bin\Debug\netstandard2.0\WeighingSystemCoreHelpers.dll
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\bin\Debug\netstandard2.0\WeighingSystemCoreHelpers.pdb
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\bin\Debug\netstandard2.0\DataAccessLayer.dll
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\bin\Debug\netstandard2.0\DataAccessLayer.pdb
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.csprojAssemblyReference.cache
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.AssemblyInfoInputs.cache
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.AssemblyInfo.cs
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.csproj.CoreCompileInputs.cache
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.csproj.CopyComplete
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.dll
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.pdb
+D:\dir\Projects\TSI\HOCPO FS\HocpoFs\WeighingSystemCoreHelpers\bin\Debug\netstandard2.0\WeighingSystemCoreHelpers.deps.json
+D:\dir\Projects\TSI\HOCPO FS\HocpoFs\WeighingSystemCoreHelpers\bin\Debug\netstandard2.0\WeighingSystemCoreHelpers.dll
+D:\dir\Projects\TSI\HOCPO FS\HocpoFs\WeighingSystemCoreHelpers\bin\Debug\netstandard2.0\WeighingSystemCoreHelpers.pdb
+D:\dir\Projects\TSI\HOCPO FS\HocpoFs\WeighingSystemCoreHelpers\bin\Debug\netstandard2.0\DataAccessLayer.dll
+D:\dir\Projects\TSI\HOCPO FS\HocpoFs\WeighingSystemCoreHelpers\bin\Debug\netstandard2.0\DataAccessLayer.pdb
+D:\dir\Projects\TSI\HOCPO FS\HocpoFs\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.csprojAssemblyReference.cache
+D:\dir\Projects\TSI\HOCPO FS\HocpoFs\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.AssemblyInfoInputs.cache
+D:\dir\Projects\TSI\HOCPO FS\HocpoFs\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.AssemblyInfo.cs
+D:\dir\Projects\TSI\HOCPO FS\HocpoFs\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.csproj.CoreCompileInputs.cache
+D:\dir\Projects\TSI\HOCPO FS\HocpoFs\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.csproj.CopyComplete
+D:\dir\Projects\TSI\HOCPO FS\HocpoFs\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.dll
+D:\dir\Projects\TSI\HOCPO FS\HocpoFs\WeighingSystemCoreHelpers\obj\Debug\netstandard2.0\WeighingSystemCoreHelpers.pdb

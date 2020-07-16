@@ -1,0 +1,80 @@
+{
+  "BinLocations": [
+    {
+      "id": 1,
+      "BinLocationId": 1,
+      "BinLocDesc": "NEW LINE"
+    },
+    {
+      "id": 2,
+      "BinLocationId": 2,
+      "BinLocDesc": "AUTO DOSSING"
+    },
+    {
+      "BinLocDesc": "NEW AAAASS",
+      "BinLocationId": 3,
+      "id": 3
+    }
+  ],
+  "PackagingTypes": [
+    {
+      "id": 1,
+      "PackagingTypeId": 1,
+      "PackagingTypeDesc": "gdsgasg sagasgasd"
+    }
+  ],
+  "Pallets": [
+    {
+      "id": 1,
+      "PalletId": 1,
+      "PalletNum": "NO NUMBER",
+      "UpdatedWt": "106.000"
+    },
+    {
+      "id": 3,
+      "PalletNum": "BOX 10",
+      "UpdatedWt": "731.000"
+    },
+    {
+      "id": 4,
+      "PalletNum": "1315",
+      "UpdatedWt": "600"
+    },
+    {
+      "PalletNum": "NEW AAAASS",
+      "PalletId": 5,
+      "id": 5
+    }
+  ],
+  "RawMaterials": [],
+  "ForkLifts": [
+    {
+      "id": 1,
+      "ForkliftNum": "fdsafsf",
+      "UpdatedTareWt": "1211"
+    }
+  ],
+  "Warehouses": [
+    {
+      "id": 1,
+      "WarehouseCode": "123123",
+      "WarehouseName": "12312gasdg"
+    }
+  ],
+  "Locations": [
+    {
+      "id": 1,
+      "BinLocationDesc": "",
+      "LocationName": "gdsgasgasdg"
+    }
+  ],
+  "Shifts": [
+    {
+      "id": 1,
+      "ShiftCode": "123123",
+      "ShiftDesc": "123123",
+      "TimeFrom": "12312",
+      "TimeTo": "123123"
+    }
+  ]
+}

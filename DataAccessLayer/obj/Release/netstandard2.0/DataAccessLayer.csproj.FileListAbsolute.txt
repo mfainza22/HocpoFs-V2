@@ -1,0 +1,26 @@
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\DataAccessLayer\bin\Release\netstandard2.0\DataAccessLayer.deps.json
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\DataAccessLayer\bin\Release\netstandard2.0\DataAccessLayer.dll
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\DataAccessLayer\bin\Release\netstandard2.0\DataAccessLayer.pdb
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\DataAccessLayer.csprojAssemblyReference.cache
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\DataAccessLayer.AssemblyInfoInputs.cache
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\DataAccessLayer.AssemblyInfo.cs
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\DataAccessLayer.dll
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\DataAccessLayer.pdb
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\DataAccessLayer\bin\Release\netstandard2.0\DataAccessLayer.deps.json
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\DataAccessLayer\bin\Release\netstandard2.0\DataAccessLayer.dll
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\DataAccessLayer\bin\Release\netstandard2.0\DataAccessLayer.pdb
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\DataAccessLayer.csprojAssemblyReference.cache
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\DataAccessLayer.AssemblyInfoInputs.cache
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\DataAccessLayer.AssemblyInfo.cs
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\DataAccessLayer.dll
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\DataAccessLayer.pdb
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\DataAccessLayer\bin\Release\netstandard2.0\DataAccessLayer.deps.json
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\DataAccessLayer\bin\Release\netstandard2.0\DataAccessLayer.dll
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\DataAccessLayer\bin\Release\netstandard2.0\DataAccessLayer.pdb
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\DataAccessLayer.csprojAssemblyReference.cache
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\DataAccessLayer.AssemblyInfoInputs.cache
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\DataAccessLayer.AssemblyInfo.cs
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\DataAccessLayer.csproj.CoreCompileInputs.cache
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\DataAccessLayer.dll
+D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\DataAccessLayer\obj\Release\netstandard2.0\DataAccessLayer.pdb

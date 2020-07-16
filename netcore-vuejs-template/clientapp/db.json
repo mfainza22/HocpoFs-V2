@@ -1,0 +1,196 @@
+{
+  "BinLocations": [
+    {
+      "id": 1,
+      "BinLocationId": 1,
+      "BinLocDesc": "NEW LINE"
+    },
+    {
+      "id": 2,
+      "BinLocationId": 2,
+      "BinLocDesc": "AUTO DOSSING"
+    }
+  ],
+  "PackagingTypes": [
+    {
+      "id": 1,
+      "PackagingTypeId": 1,
+      "PackagingTypeDesc": "BULK",
+      "EmptyPackageWt": 1
+    },
+    {
+      "id": 2,
+      "PackagingTypeId": 2,
+      "PackagingTypeDesc": "BAGS",
+      "EmptyPackageWt": 1
+    },
+    {
+      "id": 3,
+      "PackagingTypeId": 3,
+      "PackagingTypeDesc": "DRUM",
+      "EmptyPackageWt": 4
+    },
+    {
+      "id": 4,
+      "PackagingTypeId": 3,
+      "PackagingTypeDesc": "PALECON",
+      "EmptyPackageWt": 5
+    }
+  ],
+  "Pallets": [
+    {
+      "id": 1,
+      "PalletId": 1,
+      "PalletNum": "NO NUMBER",
+      "UpdatedWt": "106.000"
+    },
+    {
+      "id": 3,
+      "PalletNum": "BOX 10",
+      "UpdatedWt": "731.000"
+    },
+    {
+      "id": 4,
+      "PalletNum": "1315",
+      "UpdatedWt": "600"
+    },
+    {
+      "PalletNum": "NEW AAAASS",
+      "PalletId": 5,
+      "id": 5
+    }
+  ],
+  "RawMaterials": [
+    {
+      "id": 1,
+      "RawMaterialId": 1,
+      "RawMaterialCode": "3WA03",
+      "RawMaterialDesc": "AUSTRALIAN WHEAT"
+    },
+    {
+      "id": 5,
+      "RawMaterialId": 5,
+      "RawMaterialCode": "BAKERY MEAL",
+      "RawMaterialDesc": "BAKERY MEAL"
+    }
+  ],
+  "ForkLifts": [
+    {
+      "id": 1,
+      "ForkliftNum": "fdsafsf",
+      "UpdatedTareWt": "1211"
+    }
+  ],
+  "Warehouses": [
+    {
+      "id": 1,
+      "WarehouseId": 1,
+      "WarehouseCode": "COMPLEX1 WHSE1",
+      "WarehouseName": "COMPLEX1 WHSE1"
+    },
+    {
+      "id": 2,
+      "WarehouseId": 2,
+      "WarehouseCode": "COMPLEX1 WHSE2",
+      "WarehouseName": "COMPLEX1 WHSE2"
+    },
+    {
+      "id": 3,
+      "WarehouseId": 3,
+      "WarehouseCode": "COMPLEX1 WHSE3",
+      "WarehouseName": "COMPLEX1 WHSE3"
+    },
+    {
+      "id": 8,
+      "WarehouseId": 3,
+      "WarehouseCode": "WHSE B",
+      "WarehouseName": "WHSE B"
+    },
+    {
+      "id": 12,
+      "WarehouseId": 12,
+      "WarehouseCode": "C1-W1-BACK",
+      "WarehouseName": "C1-W1-BACK"
+    }
+  ],
+  "Locations": [
+    {
+      "id": 6,
+      "LocationName": "A"
+    },
+    {
+      "id": 7,
+      "LocationName": "B"
+    },
+    {
+      "id": 8,
+      "LocationName": "C"
+    },
+    {
+      "id": 29,
+      "LocationName": "FRONT"
+    },
+    {
+      "id": 30,
+      "LocationName": "BACK"
+    }
+  ],
+  "Shifts": [
+    {
+      "id": 1,
+      "ShiftCode": "123123",
+      "ShiftDesc": "123123",
+      "TimeFrom": "12312",
+      "TimeTo": "123123"
+    }
+  ],
+  "Transactions": [
+    {
+      "id": 1,
+      "TransactionId": 1,
+      "DTInbound": "2020-Jan-27 11:45:10 am",
+      "DTOutbound": "2020-Jan-27 11:45:10 am",
+      "ForkliftNum": "",
+      "PalletNum": "NO NUMBER",
+      "RawMaterialId": 1,
+      "RawMaterialDesc": "ARGENTINA SOYA",
+      "PackagingTypeId": 1,
+      "PackagingTypeDesc": "BULK",
+      "EmptyPackageWt": 0,
+      "WtPerPackage": 50,
+      "Quantity": 41,
+      "BinLocationId": 1,
+      "BinLocDesc": "NEW LINE",
+      "LocationId": 1,
+      "BinNum": 4,
+      "WarehouseId": 1,
+      "WarehouseName": 1,
+      "WtInbound": 2620,
+      "WtOubound": 626,
+      "NetWt": 1994,
+      "ActualNetWt": 1994,
+      "WtPerPackageActual": 0,
+      "WeightStatus": "NONE",
+      "DriverName": "MICHAEL",
+      "CheckerName": "",
+      "WeigherInId": "cea78691-84a0-411b-b29d-89b17d8e4c69",
+      "WeigherOutId": "cea78691-84a0-411b-b29d-89b17d8e4c69",
+      "Remarks": "",
+      "ShiftId": null,
+      "ShiftDate": null,
+      "ModifiedById": "",
+      "ModifiedDate": "",
+      "WeighingAreaId": 1,
+      "WeighingAreaName": "WAREHOUSE 1",
+      "DailyCounter": 1,
+      "MonthlyCounter": "",
+      "Deleted": false,
+      "ReceiptNumPrefix": null,
+      "DailyTransPrefix": "D",
+      "ContrulNum": "D-0001",
+      "TransferLimitId": 21,
+      "OfflineIn": false,
+      "OfflineOut" :  false
+    }
+  ]
+}

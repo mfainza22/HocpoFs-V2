@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="netcore-vue" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\dir\\Projects\\netcore-vuejs-template\\netcore-vuejs-template\\obj\\Release\\netcoreapp3\.1\\PubTmp\\Out\\$" />
+  </parameter>
+</parameters>
