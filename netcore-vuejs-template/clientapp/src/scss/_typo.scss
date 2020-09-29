@@ -1,0 +1,11 @@
+.v-input.value-uppercase {
+  .v-text-field__slot > input {
+    text-transform: uppercase;
+  }
+}
+
+.value-uppercase .v-input {
+  .v-select__slot > input {
+    text-transform: uppercase;
+  }
+}

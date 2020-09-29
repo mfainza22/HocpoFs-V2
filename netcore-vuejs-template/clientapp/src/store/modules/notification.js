@@ -13,6 +13,7 @@ export default {
   },
   actions: {
     show({ commit }, notification) {
+      notification.visible = true;
       commit("SHOW", notification);
     }
   },

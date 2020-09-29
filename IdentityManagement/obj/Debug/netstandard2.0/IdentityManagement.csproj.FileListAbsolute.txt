@@ -1,0 +1,55 @@
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\IdentityManagement.deps.json
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\IdentityManagement.dll
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\IdentityManagement.pdb
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\DataAccessLayer.dll
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\WeighingSystemCoreHelpers.dll
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\WeighingSystemCoreHelpers.pdb
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\DataAccessLayer.pdb
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.csprojAssemblyReference.cache
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.csproj.CoreCompileInputs.cache
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.AssemblyInfoInputs.cache
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.AssemblyInfo.cs
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.csproj.CopyComplete
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.dll
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.pdb
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\IdentityManagement.deps.json
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\IdentityManagement.dll
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\IdentityManagement.pdb
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\DataAccessLayer.dll
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\WeighingSystemCoreHelpers.dll
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\WeighingSystemCoreHelpers.pdb
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\DataAccessLayer.pdb
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.csprojAssemblyReference.cache
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.AssemblyInfoInputs.cache
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.AssemblyInfo.cs
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.csproj.CopyComplete
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.dll
+C:\STORAGE\Dir\Terriniel Scales System\HOCPO FS\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.pdb
+D:\dir\tsi\HOCPO-FS\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\IdentityManagement.deps.json
+D:\dir\tsi\HOCPO-FS\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\IdentityManagement.dll
+D:\dir\tsi\HOCPO-FS\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\IdentityManagement.pdb
+D:\dir\tsi\HOCPO-FS\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\DataAccessLayer.dll
+D:\dir\tsi\HOCPO-FS\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\WeighingSystemCoreHelpers.dll
+D:\dir\tsi\HOCPO-FS\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\WeighingSystemCoreHelpers.pdb
+D:\dir\tsi\HOCPO-FS\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\DataAccessLayer.pdb
+D:\dir\tsi\HOCPO-FS\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.csprojAssemblyReference.cache
+D:\dir\tsi\HOCPO-FS\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.AssemblyInfoInputs.cache
+D:\dir\tsi\HOCPO-FS\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.AssemblyInfo.cs
+D:\dir\tsi\HOCPO-FS\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.csproj.CoreCompileInputs.cache
+D:\dir\tsi\HOCPO-FS\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.csproj.CopyComplete
+D:\dir\tsi\HOCPO-FS\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.dll
+D:\dir\tsi\HOCPO-FS\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.pdb
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\IdentityManagement\bin\Debug\netstandard2.0\IdentityManagement.deps.json
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\IdentityManagement\bin\Debug\netstandard2.0\IdentityManagement.dll
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\IdentityManagement\bin\Debug\netstandard2.0\IdentityManagement.pdb
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\IdentityManagement\bin\Debug\netstandard2.0\DataAccessLayer.dll
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\IdentityManagement\bin\Debug\netstandard2.0\WeighingSystemCoreHelpers.dll
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\IdentityManagement\bin\Debug\netstandard2.0\WeighingSystemCoreHelpers.pdb
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\IdentityManagement\bin\Debug\netstandard2.0\DataAccessLayer.pdb
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.csprojAssemblyReference.cache
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.AssemblyInfoInputs.cache
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.AssemblyInfo.cs
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.csproj.CoreCompileInputs.cache
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.csproj.CopyComplete
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.dll
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\IdentityManagement\obj\Debug\netstandard2.0\IdentityManagement.pdb

@@ -53,10 +53,14 @@ export default {
   },
   created() {
     EventBus.$on("setPageTitle", this.onSetPageTitle);
+    EventBus.$on("hideDrawer", this.hideDrawer);
   },
   methods: {
     onSetPageTitle(val) {
       this.pageTitle = val;
+    },
+    hideDrawer() {
+      this.drawer = false;
     }
   }
 };

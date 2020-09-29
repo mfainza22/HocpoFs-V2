@@ -33,3 +33,15 @@ D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Re
 D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Release\netstandard2.0\WeighingSystemCoreHelpers.csproj.CopyComplete
 D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Release\netstandard2.0\WeighingSystemCoreHelpers.dll
 D:\dir\Projects\TSI\HOCPO FS\WeighingSystemCore\WeighingSystemCoreHelpers\obj\Release\netstandard2.0\WeighingSystemCoreHelpers.pdb
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\WeighingSystemCoreHelpers\bin\Release\netstandard2.0\WeighingSystemCoreHelpers.deps.json
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\WeighingSystemCoreHelpers\bin\Release\netstandard2.0\WeighingSystemCoreHelpers.dll
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\WeighingSystemCoreHelpers\bin\Release\netstandard2.0\WeighingSystemCoreHelpers.pdb
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\WeighingSystemCoreHelpers\bin\Release\netstandard2.0\DataAccessLayer.dll
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\WeighingSystemCoreHelpers\bin\Release\netstandard2.0\DataAccessLayer.pdb
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\WeighingSystemCoreHelpers\obj\Release\netstandard2.0\WeighingSystemCoreHelpers.csprojAssemblyReference.cache
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\WeighingSystemCoreHelpers\obj\Release\netstandard2.0\WeighingSystemCoreHelpers.AssemblyInfoInputs.cache
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\WeighingSystemCoreHelpers\obj\Release\netstandard2.0\WeighingSystemCoreHelpers.AssemblyInfo.cs
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\WeighingSystemCoreHelpers\obj\Release\netstandard2.0\WeighingSystemCoreHelpers.csproj.CoreCompileInputs.cache
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\WeighingSystemCoreHelpers\obj\Release\netstandard2.0\WeighingSystemCoreHelpers.csproj.CopyComplete
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\WeighingSystemCoreHelpers\obj\Release\netstandard2.0\WeighingSystemCoreHelpers.dll
+D:\dir\tsi\HOCPO-FS\HocpoFs-V2\WeighingSystemCoreHelpers\obj\Release\netstandard2.0\WeighingSystemCoreHelpers.pdb

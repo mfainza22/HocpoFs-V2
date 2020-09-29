@@ -1,27 +1,48 @@
 <template>
   <div>
     <v-dialog v-model="show" max-width="500" persistent>
-      <v-form @submit.prevent="save">
+      <ValidationObserver ref="form" tag="form" @submit.prevent="save">
         <v-card class="pa-5">
           <v-card-title>
             <span>{{ modalTitle }} </span>
-            <div v-show="hasInternalError">
-              {{ internalErrorMsg }}
-            </div>
           </v-card-title>
           <v-card-text>
             <v-row dense>
               <v-col cols="12">
-                <v-text-field
-                  v-model="item.WarehouseCode"
-                  label="Warehouse Code"
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12">
-                <v-text-field
-                  v-model="item.WarehouseName"
-                  label="Warehouse Name"
-                ></v-text-field>
+                <ValidationProvider
+                  v-slot="{ errors }"
+                  mode="lazy"
+                  name="Code"
+                  :rules="{
+                    required: true,
+                    max: 50,
+                    remote: { url: '/warehouse/validatecode', obj: item }
+                  }"
+                >
+                  <v-text-field
+                    v-model="item.WarehouseCode"
+                    :error-messages="errors"
+                    label="Description"
+                    class="value-uppercase"
+                  ></v-text-field>
+                </ValidationProvider>
+                <ValidationProvider
+                  v-slot="{ errors }"
+                  mode="lazy"
+                  name="Description"
+                  :rules="{
+                    required: true,
+                    max: 50,
+                    remote: { url: '/warehouse/validatename', obj: item }
+                  }"
+                >
+                  <v-text-field
+                    v-model="item.WarehouseName"
+                    :error-messages="errors"
+                    label="Description"
+                    class="value-uppercase"
+                  ></v-text-field>
+                </ValidationProvider>
               </v-col>
             </v-row>
           </v-card-text>
@@ -31,17 +52,23 @@
             <ButtonCancel @click="cancel()" />
           </v-card-actions>
         </v-card>
-      </v-form>
+      </ValidationObserver>
     </v-dialog>
   </div>
 </template>
 
 <script>
 import notiMixin from "@/mixins/notiMixin.js";
-import warehouseService from "@/services/warehouseService.js";
+import { mapState, mapGetters, mapActions } from "vuex";
+import "@/validations/veeValidateExtensions.js";
+import { ValidationProvider, ValidationObserver } from "vee-validate";
 
 export default {
   name: "Warehouse",
+  components: {
+    ValidationProvider,
+    ValidationObserver
+  },
   mixins: [notiMixin],
   props: {
     id: {
@@ -52,15 +79,12 @@ export default {
   data() {
     return {
       modalTitle: "",
-      show: true,
-      item: {},
-      internalErrorMsg: ""
+      show: true
     };
   },
   computed: {
-    hasInternalError() {
-      return !!this.internalErrorMsg;
-    }
+    ...mapGetters("warehouse", ["defaultItem"]),
+    ...mapState("warehouse", ["item"])
   },
   watch: {
     show(value) {
@@ -69,82 +93,37 @@ export default {
       }
     }
   },
-  created() {
-    if (this.id == 0) {
-      this.item = this.defaultItem();
-      this.modalTitle = "Add New Warehouse";
-    } else {
-      this.item = this.getDetails();
-      this.modalTitle = "Update Warehouse";
-    }
+  async created() {
+    this.modalTitle =
+      this.id == 0 ? "Add New Warehouse" : "Update Warehouse Type";
+    await this.get(this.id);
   },
-  beforeCreate() {},
   methods: {
-    defaultItem() {
-      return {
-        id: 0,
-        WarehouseCode: "",
-        WarehouseName: 0
-      };
-    },
+    ...mapActions("warehouse", {
+      get: "getWarehouse",
+      create: "createWarehouse",
+      update: "updateWarehouse"
+    }),
     save() {
-      if (this.id == 0) {
-        this.cancelled = false;
-        return this.create();
-      } else {
-        return this.update();
-      }
-    },
-    async create() {
-      const noti = {
-        visible: true
-      };
+      this.$refs.form.validate().then(async success => {
+        if (!success) {
+          return;
+        }
+        if (this.id == 0) {
+          this.cancelled = false;
+          await this.create(this.item);
+        } else {
+          await this.update(this.item);
+        }
 
-      try {
-        await warehouseService.create(this.item);
-        noti.type = "success";
-        noti.content = "New Warehouse added successfully";
         this.close();
-      } catch (error) {
-        noti.type = "error";
-        this.internalErrorMsg = error;
-        noti.content = error;
-      } finally {
-        this.showNotification(noti);
-      }
-    },
-    async update() {
-      const noti = {
-        visible: true
-      };
-
-      try {
-        await warehouseService.update(this.item.id, this.item);
-        noti.type = "success";
-        noti.content = "Warehouse updated successfully";
-        this.close();
-      } catch (error) {
-        noti.type = "error";
-        noti.content = error;
-        this.internalErrorMsg = error;
-      } finally {
-        this.showNotification(noti);
-      }
+      });
     },
     cancel() {
-      this.cancelled = true;
       this.close();
     },
     close() {
-      this.show = false;
-    },
-    async getDetails() {
-      try {
-        const response = await warehouseService.getById(this.id);
-        this.item = response.data;
-      } catch (error) {
-        console.log(error);
-      }
+      this.$router.back();
     }
   },
   beforeRouteLeave(to, from, next) {

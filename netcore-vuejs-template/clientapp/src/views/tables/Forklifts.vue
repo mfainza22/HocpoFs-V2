@@ -3,7 +3,7 @@
     <v-sheet class="elevation-1">
       <v-data-table
         v-model="checkedRows"
-        item-key="id"
+        item-key="ForkliftId"
         :headers="tblHeaders"
         :items="items"
         :search="search"
@@ -27,12 +27,12 @@
             ></v-text-field>
           </v-toolbar>
         </template>
-        <template v-slot:item.id="{ item }">
+        <template v-slot:[`item.ForkliftId`]="{ item }">
           <v-btn
             fab
             x-small
             class="elevation-1"
-            :to="{ name: 'ForkliftUpdate', params: { id: item.id } }"
+            :to="{ name: 'ForkliftUpdate', params: { id: item.ForkliftId } }"
           >
             <v-icon color="success">mdi-pencil</v-icon>
           </v-btn>
@@ -54,7 +54,7 @@ export default {
   mixins: [navbarMixins, notiMixin],
   data() {
     return {
-      pageTitle: "Pallets",
+      pageTitle: "Forklifts",
       checkedRows: [],
       search: "",
       items: [],
@@ -108,8 +108,8 @@ export default {
 
       this.$refs.messagebox.open(msgBoxOpts, async () => {
         try {
-          let params = this.checkedRows.map(a => a.id);
-          await forkliftService.delete(params);
+          let params = this.checkedRows.map(a => a.ForkliftId);
+          await forkliftService.bulkDelete(params);
 
           noti.type = "success";
           noti.content = `${params.length} ${
@@ -128,7 +128,7 @@ export default {
     }
   },
   beforeRouteUpdate(to, from, next) {
-    if (!from.meta.cancelled == true) this.init();
+    if (from.meta.cancelled === false) this.init();
     next();
   }
 };

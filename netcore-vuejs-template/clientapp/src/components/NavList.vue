@@ -19,12 +19,9 @@
           <v-layout v-if="item.subitems.length == 0" :key="item.title">
             <v-list-item :color="menuStyle.color" link :to="item.link">
               <v-list-item-icon>
-                <v-icon
-                  :small="menuStyle.small"
-                  class="grey--text text--lighten-1 "
-                  :class="menuStyle.class"
-                  >{{ item.icon }}</v-icon
-                >
+                <v-icon :small="menuStyle.small" :class="menuStyle.iconClass">{{
+                  item.icon
+                }}</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
                 <v-list-item-title :class="`${menuStyle.class}`">{{
@@ -44,7 +41,7 @@
               <v-list-item-icon>
                 <v-icon
                   class="grey--text text--lighten-1 "
-                  :class="menuStyle.class"
+                  :class="menuStyle.iconClass"
                   >{{ item.icon }}</v-icon
                 >
               </v-list-item-icon>
@@ -93,14 +90,18 @@ export default {
   data: () => ({
     menuStyle: {
       color: "grey darken-2",
-      small: false
+      small: true,
+      class: "caption",
+      iconClass: "grey--text text--lighten-1 "
     },
     menuItems: [
       {
         icon: "mdi-view-dashboard",
         title: "Transaction",
         link: "/",
-        subitems: []
+        subitems: [
+          { icon: "", title: "Transaction", link: { name: "Transactions" } }
+        ]
       },
       {
         icon: "mdi-database",
@@ -115,7 +116,7 @@ export default {
           },
           { icon: "", title: "Pallets", link: { name: "Pallets" } },
           { icon: "", title: "Raw Materials", link: { name: "RawMaterials" } },
-          { icon: "", title: "Forklifts", link: { name: "Forklifts" } },
+          // { icon: "", title: "Forklifts", link: { name: "Forklifts" } },
           { icon: "", title: "Warehouses", link: { name: "Warehouses" } },
           { icon: "", title: "Locations", link: { name: "Locations" } },
           {

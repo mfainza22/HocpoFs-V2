@@ -3,7 +3,7 @@
     <v-sheet class="elevation-1">
       <v-data-table
         v-model="checkedRows"
-        item-key="id"
+        item-key="ShiftId"
         :headers="tblHeaders"
         :items="items"
         :search="search"
@@ -27,12 +27,12 @@
             ></v-text-field>
           </v-toolbar>
         </template>
-        <template v-slot:item.id="{ item }">
+        <template v-slot:[`item.id`]="{ item }">
           <v-btn
             fab
             x-small
             class="elevation-1"
-            :to="{ name: 'ShiftUpdate', params: { id: item.id } }"
+            :to="{ name: 'ShiftUpdate', params: { id: item.ShiftId } }"
           >
             <v-icon color="success">mdi-pencil</v-icon>
           </v-btn>
@@ -53,15 +53,33 @@ export default {
   mixins: [navbarMixins, notiMixin],
   data() {
     return {
-      pageTitle: "Bin Locations",
+      pageTitle: "Shifts",
       checkedRows: [],
       search: "",
       items: [],
       tblHeaders: [
         {
+          text: "Code",
+          value: "ShiftCode",
+          sortable: true,
+          align: "left"
+        },
+        {
           text: "Description",
           value: "ShiftDesc",
           sortable: true,
+          align: "left"
+        },
+        {
+          text: "Time From",
+          value: "TimeFrom",
+          sortable: false,
+          align: "left"
+        },
+        {
+          text: "Time To",
+          value: "TimeTo",
+          sortable: false,
           align: "left"
         },
         {
@@ -100,8 +118,8 @@ export default {
 
       this.$refs.messagebox.open(msgBoxOpts, async () => {
         try {
-          let params = this.checkedRows.map(a => a.id);
-          await shiftService.delete(params);
+          let params = this.checkedRows.map(a => a.ShiftId);
+          await shiftService.bulkDelete(params);
 
           noti.type = "success";
           noti.content = `${params.length} ${
@@ -120,7 +138,7 @@ export default {
     }
   },
   beforeRouteUpdate(to, from, next) {
-    if (!from.meta.cancelled == true) this.init();
+    if (from.meta.cancelled === false) this.init();
     next();
   }
 };

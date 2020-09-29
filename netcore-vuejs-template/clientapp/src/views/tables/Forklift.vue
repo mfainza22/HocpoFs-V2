@@ -1,38 +1,58 @@
 <template>
   <div>
     <v-dialog v-model="show" max-width="500" persistent>
-      <v-form @submit.prevent="save">
+      <ValidationObserver ref="form" @submit.prevent="save">
         <v-card class="pa-5">
           <v-card-title>
-            <span>{{ modalTitle }} </span>
-            <div v-show="hasInternalError">
-              {{ internalErrorMsg }}
-            </div>
+            <span>{{ modalTitle }}</span>
+            <div v-show="hasInternalError">{{ internalErrorMsg }}</div>
           </v-card-title>
           <v-card-text>
             <v-row dense>
               <v-col cols="12">
-                <v-text-field
-                  v-model="item.ForkliftNum"
-                  label="Forklift Number"
-                ></v-text-field>
+                <ValidationProvider
+                  v-slot="{ errors }"
+                  mode="lazy"
+                  name="Description"
+                  :rules="{
+                    required: true,
+                    max: 50,
+                    remote: { url: '/forklift/ValidateForkLiftNum', obj: item }
+                  }"
+                >
+                  <v-text-field
+                    v-model="item.ForkliftNum"
+                    :error-messages="errors"
+                    label="Forklift Number"
+                  ></v-text-field>
+                </ValidationProvider>
               </v-col>
               <v-col cols="12">
-                <v-text-field
-                  v-model="item.UpdatedTareWt"
-                  label="Tare Weight (Kg)"
-                  type="number"
-                ></v-text-field>
+                <ValidationProvider
+                  v-slot="{ errors }"
+                  mode="lazy"
+                  name="Updated Tare Wt."
+                  :rules="{
+                    between: { min: 1000, max: 9000 }
+                  }"
+                >
+                  <v-text-field
+                    v-model.number="item.UpdatedTareWt"
+                    type="number"
+                    :error-messages="errors"
+                    label="Updated Tare Wt."
+                  ></v-text-field>
+                </ValidationProvider>
               </v-col>
             </v-row>
           </v-card-text>
           <v-card-actions fixed>
             <v-spacer></v-spacer>
-            <ButtonSave type="submit" class="mr-2" />
+            <ButtonSave type="submit" class="mr-2" @click="save" />
             <ButtonCancel @click="cancel()" />
           </v-card-actions>
         </v-card>
-      </v-form>
+      </ValidationObserver>
     </v-dialog>
   </div>
 </template>
@@ -40,10 +60,17 @@
 <script>
 import notiMixin from "@/mixins/notiMixin.js";
 import forkliftService from "@/services/forkliftService.js";
+import "@/validations/veeValidateExtensions.js";
+import { ValidationProvider, ValidationObserver } from "vee-validate";
 
 export default {
   name: "Forklift",
+  components: {
+    ValidationProvider,
+    ValidationObserver
+  },
   mixins: [notiMixin],
+
   props: {
     id: {
       type: Number,
@@ -83,18 +110,23 @@ export default {
   methods: {
     defaultItem() {
       return {
-        id: 0,
+        ForkliftId: 0,
         ForkliftNum: "",
         UpdatedTareWt: 0
       };
     },
-    save() {
-      if (this.id == 0) {
-        this.cancelled = false;
-        return this.create();
-      } else {
-        return this.update();
-      }
+    async save() {
+      this.$refs.form.validate().then(success => {
+        if (!success) {
+          return;
+        }
+        if (this.id == 0) {
+          this.cancelled = false;
+          return this.create();
+        } else {
+          return this.update();
+        }
+      });
     },
     async create() {
       const noti = {
@@ -104,7 +136,7 @@ export default {
       try {
         await forkliftService.create(this.item);
         noti.type = "success";
-        noti.content = "New Fork Lift added successfully";
+        noti.content = "New Forklift added successfully";
         this.close();
       } catch (error) {
         noti.type = "error";
@@ -120,7 +152,7 @@ export default {
       };
 
       try {
-        await forkliftService.update(this.item.id, this.item);
+        await forkliftService.update(this.item.ForkliftId, this.item);
         noti.type = "success";
         noti.content = "Forklift updated successfully";
         this.close();

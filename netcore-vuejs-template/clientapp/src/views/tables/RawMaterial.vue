@@ -1,27 +1,48 @@
 <template>
   <div>
     <v-dialog v-model="show" max-width="500" persistent>
-      <v-form @submit.prevent="save">
+      <ValidationObserver ref="form" tag="form" @submit.prevent="save">
         <v-card class="pa-5">
           <v-card-title>
             <span>{{ modalTitle }} </span>
-            <div v-show="hasInternalError">
-              {{ internalErrorMsg }}
-            </div>
           </v-card-title>
           <v-card-text>
             <v-row dense>
               <v-col cols="12">
-                <v-text-field
-                  v-model="item.RawMaterialCode"
-                  label="Code"
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12">
-                <v-text-field
-                  v-model="item.RawMaterialDesc"
-                  label="Description"
-                ></v-text-field>
+                <ValidationProvider
+                  v-slot="{ errors }"
+                  mode="lazy"
+                  name="Code"
+                  :rules="{
+                    required: true,
+                    max: 50,
+                    remote: { url: '/rawmaterial/validatecode', obj: item }
+                  }"
+                >
+                  <v-text-field
+                    v-model="item.RawMaterialCode"
+                    :error-messages="errors"
+                    label="Description"
+                    class="value-uppercase "
+                  ></v-text-field>
+                </ValidationProvider>
+                <ValidationProvider
+                  v-slot="{ errors }"
+                  mode="lazy"
+                  name="Description"
+                  :rules="{
+                    required: true,
+                    max: 50,
+                    remote: { url: '/rawmaterial/validatedesc', obj: item }
+                  }"
+                >
+                  <v-text-field
+                    v-model="item.RawMaterialDesc"
+                    :error-messages="errors"
+                    label="Description"
+                    class="value-uppercase "
+                  ></v-text-field>
+                </ValidationProvider>
               </v-col>
             </v-row>
           </v-card-text>
@@ -31,36 +52,39 @@
             <ButtonCancel @click="cancel()" />
           </v-card-actions>
         </v-card>
-      </v-form>
+      </ValidationObserver>
     </v-dialog>
   </div>
 </template>
 
 <script>
 import notiMixin from "@/mixins/notiMixin.js";
-import rawMaterialService from "@/services/rawMaterialService.js";
+import { mapState, mapGetters, mapActions } from "vuex";
+import "@/validations/veeValidateExtensions.js";
+import { ValidationProvider, ValidationObserver } from "vee-validate";
 
 export default {
-  name: "Pallet",
+  name: "RawMaterial",
+  components: {
+    ValidationProvider,
+    ValidationObserver
+  },
   mixins: [notiMixin],
   props: {
     id: {
-      type: Number,
+      type: Number || String,
       default: 0
     }
   },
   data() {
     return {
       modalTitle: "",
-      show: true,
-      item: {},
-      internalErrorMsg: ""
+      show: true
     };
   },
   computed: {
-    hasInternalError() {
-      return !!this.internalErrorMsg;
-    }
+    ...mapGetters("raMaterial", ["defaultItem"]),
+    ...mapState("rawMaterial", ["item"])
   },
   watch: {
     show(value) {
@@ -69,82 +93,37 @@ export default {
       }
     }
   },
-  created() {
-    if (this.id == 0) {
-      this.item = this.defaultItem();
-      this.modalTitle = "Add New Raw Material";
-    } else {
-      this.item = this.getDetails();
-      this.modalTitle = "Update Raw Material";
-    }
+  async created() {
+    this.modalTitle =
+      this.id == 0 ? "Add New Raw Material" : "Update Raw Material";
+    await this.get(this.id);
   },
-  beforeCreate() {},
   methods: {
-    defaultItem() {
-      return {
-        id: 0,
-        RawMaterialCode: "",
-        RawMaterialDesc: 0
-      };
-    },
+    ...mapActions("rawMaterial", {
+      get: "getRawMaterial",
+      create: "createRawMaterial",
+      update: "updateRawMaterial"
+    }),
     save() {
-      if (this.id == 0) {
-        this.cancelled = false;
-        return this.create();
-      } else {
-        return this.update();
-      }
-    },
-    async create() {
-      const noti = {
-        visible: true
-      };
+      this.$refs.form.validate().then(async success => {
+        if (!success) {
+          return;
+        }
+        if (this.id == 0) {
+          this.cancelled = false;
+          await this.create(this.item);
+        } else {
+          await this.update(this.item);
+        }
 
-      try {
-        await rawMaterialService.create(this.item);
-        noti.type = "success";
-        noti.content = "New raw material added successfully";
         this.close();
-      } catch (error) {
-        noti.type = "error";
-        this.internalErrorMsg = error;
-        noti.content = error;
-      } finally {
-        this.showNotification(noti);
-      }
-    },
-    async update() {
-      const noti = {
-        visible: true
-      };
-
-      try {
-        await rawMaterialService.update(this.item.id, this.item);
-        noti.type = "success";
-        noti.content = "Raw material updated successfully";
-        this.close();
-      } catch (error) {
-        noti.type = "error";
-        noti.content = error;
-        this.internalErrorMsg = error;
-      } finally {
-        this.showNotification(noti);
-      }
+      });
     },
     cancel() {
-      this.cancelled = true;
       this.close();
     },
     close() {
-      this.show = false;
-    },
-    async getDetails() {
-      try {
-        const response = await rawMaterialService.getById(this.id);
-        this.item = response.data;
-      } catch (error) {
-        console.log(error);
-      }
+      this.$router.back();
     }
   },
   beforeRouteLeave(to, from, next) {

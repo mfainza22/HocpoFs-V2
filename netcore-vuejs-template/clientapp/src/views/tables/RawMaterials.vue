@@ -3,15 +3,18 @@
     <v-sheet class="elevation-1">
       <v-data-table
         v-model="checkedRows"
-        item-key="id"
+        item-key="RawMaterialId"
         :headers="tblHeaders"
         :items="items"
         :search="search"
+        :footer-props="{
+          itemsPerPageOptions: [100, 200, 300, -1]
+        }"
         show-select
       >
         <template v-slot:top>
           <v-toolbar flat>
-            <ButtonDelete @click="remove()" />
+            <ButtonDelete @click="confirmDelete()" />
             <v-spacer></v-spacer>
             <ButtonAdd :to="{ name: 'RawMaterialCreate' }" />
             <v-text-field
@@ -23,16 +26,20 @@
               dense
               hide-details
               prepend-icon="mdi-search"
+              class="value-uppercase "
               :show-select="true"
             ></v-text-field>
           </v-toolbar>
         </template>
-        <template v-slot:item.id="{ item }">
+        <template v-slot:[`item.RawMaterialId`]="{ item }">
           <v-btn
             fab
             x-small
             class="elevation-1"
-            :to="{ name: 'RawMaterialUpdate', params: { id: item.id } }"
+            :to="{
+              name: 'RawMaterialUpdate',
+              params: { id: item.RawMaterialId }
+            }"
           >
             <v-icon color="success">mdi-pencil</v-icon>
           </v-btn>
@@ -47,7 +54,7 @@
 <script>
 import navbarMixins from "@/mixins/navbarMixins.js";
 import notiMixin from "@/mixins/notiMixin.js";
-import rawMaterialService from "@/services/rawMaterialService.js";
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "RawMaterials",
@@ -57,7 +64,6 @@ export default {
       pageTitle: "Raw Materials",
       checkedRows: [],
       search: "",
-      items: [],
       tblHeaders: [
         {
           text: "Code",
@@ -73,28 +79,30 @@ export default {
         },
         {
           text: "action",
-          value: "id",
+          value: "RawMaterialId",
           align: "right"
         }
       ]
     };
   },
-  watch: {},
+  computed: {
+    ...mapState("rawMaterial", {
+      items: state => state.items
+    })
+  },
   async created() {
     await this.init();
   },
   methods: {
+    ...mapActions("rawMaterial", {
+      list: "listRawMaterial",
+      delete: "deleteRawMaterials"
+    }),
     async init() {
-      try {
-        console.log("aa");
-        const response = await rawMaterialService.list();
-        this.items = response.data;
-        this.checkedRows = [];
-      } catch (error) {
-        console.log(error);
-      }
+      await this.list();
+      this.checkedRows = [];
     },
-    async remove() {
+    async confirmDelete() {
       if (this.checkedRows.length == 0) return;
 
       const msgBoxOpts = {
@@ -102,33 +110,18 @@ export default {
         content: `Do you want to delete selected items(${this.checkedRows.length})`,
         buttons: "deleteCancel"
       };
-      const noti = {
-        visible: true
-      };
 
       this.$refs.messagebox.open(msgBoxOpts, async () => {
-        try {
-          let params = this.checkedRows.map(a => a.id);
-          await rawMaterialService.delete(params);
-
-          noti.type = "success";
-          noti.content = `${params.length} ${
-            params.length == 1 ? "record" : "records"
-          } deleted successfully`;
-
-          this.init();
-        } catch (error) {
-          noti.type = "error";
-          this.internalErrorMsg = error;
-          noti.content = error;
-        } finally {
-          this.showNotification(noti);
-        }
+        await this.delete(this.checkedRows);
+        this.checkedRows = [];
       });
     }
   },
   beforeRouteUpdate(to, from, next) {
-    if (!from.meta.cancelled == true) this.init();
+    /**
+     * use the line of code below of no vuex
+     *   if (from.meta.cancelled === false) this.init();
+     */
     next();
   }
 };

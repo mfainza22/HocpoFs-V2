@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-dialog v-model="show" max-width="500" persistent>
-      <v-form @submit.prevent="save">
+    <v-dialog v-model="show" max-width="700" persistent>
+      <ValidationObserver ref="form" tag="form" @submit.prevent="save">
         <v-card class="pa-5">
           <v-card-title>
             <span>{{ modalTitle }} </span>
@@ -11,29 +11,58 @@
           </v-card-title>
           <v-card-text>
             <v-row dense>
-              <v-col cols="12">
-                <v-text-field
-                  v-model="item.ShiftCode"
-                  label="Code"
-                ></v-text-field>
+              <v-col cols="6">
+                <ValidationProvider
+                  v-slot="{ errors }"
+                  mode="lazy"
+                  name="Code"
+                  :rules="{
+                    required: true,
+                    max: 50,
+                    remote: { url: '/shift/validatecode', obj: item }
+                  }"
+                >
+                  <v-text-field
+                    v-model="item.ShiftCode"
+                    :error-messages="errors"
+                    label="Code"
+                  ></v-text-field>
+                </ValidationProvider>
               </v-col>
-              <v-col cols="12">
-                <v-text-field
-                  v-model="item.ShiftDesc"
-                  label="Description"
-                ></v-text-field>
+              <v-col cols="6">
+                <ValidationProvider
+                  v-slot="{ errors }"
+                  mode="lazy"
+                  name="Description"
+                  :rules="{
+                    required: true,
+                    max: 50,
+                    remote: { url: '/shift/validatedesc', obj: item }
+                  }"
+                >
+                  <v-text-field
+                    v-model="item.ShiftDesc"
+                    :error-messages="errors"
+                    :scrollable="true"
+                    label="Description"
+                  ></v-text-field>
+                </ValidationProvider>
               </v-col>
-              <v-col cols="12">
-                <v-text-field
+              <v-col cols="6">
+                <h3>Start:</h3>
+                <v-time-picker
                   v-model="item.TimeFrom"
-                  label="(Time) Start"
-                ></v-text-field>
+                  :scrollable="true"
+                  width="200"
+                ></v-time-picker>
               </v-col>
-              <v-col cols="12">
-                <v-text-field
+              <v-col cols="6">
+                <h3>End:</h3>
+                <v-time-picker
                   v-model="item.TimeTo"
-                  label="(Time) End"
-                ></v-text-field>
+                  :scrollable="true"
+                  width="200"
+                ></v-time-picker>
               </v-col>
             </v-row>
           </v-card-text>
@@ -43,7 +72,7 @@
             <ButtonCancel @click="cancel()" />
           </v-card-actions>
         </v-card>
-      </v-form>
+      </ValidationObserver>
     </v-dialog>
   </div>
 </template>
@@ -51,9 +80,15 @@
 <script>
 import notiMixin from "@/mixins/notiMixin.js";
 import shiftService from "@/services/shiftService.js";
+import "@/validations/veeValidateExtensions.js";
+import { ValidationProvider, ValidationObserver } from "vee-validate";
 
 export default {
-  name: "Shift",
+  name: "Shifts",
+  components: {
+    ValidationProvider,
+    ValidationObserver
+  },
   mixins: [notiMixin],
   props: {
     id: {
@@ -93,7 +128,7 @@ export default {
   methods: {
     defaultItem() {
       return {
-        id: 0,
+        ShiftId: 0,
         ShiftCode: "",
         ShiftDesc: "",
         TimeFrom: "",
@@ -101,11 +136,17 @@ export default {
       };
     },
     save() {
-      if (this.id == 0) {
-        return this.create();
-      } else {
-        return this.update();
-      }
+      this.$refs.form.validate().then(success => {
+        if (!success) {
+          return;
+        }
+        if (this.id == 0) {
+          this.cancelled = false;
+          return this.create();
+        } else {
+          return this.update();
+        }
+      });
     },
     async create() {
       const noti = {
@@ -131,7 +172,7 @@ export default {
       };
 
       try {
-        await shiftService.update(this.item.id, this.item);
+        await shiftService.update(this.item.ShiftId, this.item);
         noti.type = "success";
         noti.content = "Shift updated successfully";
         this.close();
@@ -152,7 +193,6 @@ export default {
     async getDetails() {
       try {
         const response = await shiftService.getById(this.id);
-        console.log(response.data);
         this.item = response.data;
       } catch (error) {
         console.log(error);

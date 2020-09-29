@@ -1,28 +1,31 @@
 <template>
   <div>
     <v-dialog v-model="show" max-width="500" persistent>
-      <v-form @submit.prevent="save">
+      <ValidationObserver ref="form" tag="form" @submit.prevent="save">
         <v-card class="pa-5">
           <v-card-title>
             <span>{{ modalTitle }} </span>
-            <div v-show="hasInternalError">
-              {{ internalErrorMsg }}
-            </div>
           </v-card-title>
           <v-card-text>
             <v-row dense>
               <v-col cols="12">
-                <v-text-field
-                  v-model="item.PalletNum"
-                  label="Pallet Number"
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12">
-                <v-text-field
-                  v-model="item.UpdatedWt"
-                  label="Pallet Weight (Kg)"
-                  type="number"
-                ></v-text-field>
+                <ValidationProvider
+                  v-slot="{ errors }"
+                  mode="lazy"
+                  name="Pallet Number"
+                  :rules="{
+                    required: true,
+                    max: 50,
+                    remote: { url: '/pallet/validatedesc', obj: item }
+                  }"
+                >
+                  <v-text-field
+                    v-model="item.PalletNum"
+                    :error-messages="errors"
+                    label="Pallet Number"
+                    class="value-uppercase"
+                  ></v-text-field>
+                </ValidationProvider>
               </v-col>
             </v-row>
           </v-card-text>
@@ -32,17 +35,23 @@
             <ButtonCancel @click="cancel()" />
           </v-card-actions>
         </v-card>
-      </v-form>
+      </ValidationObserver>
     </v-dialog>
   </div>
 </template>
 
 <script>
 import notiMixin from "@/mixins/notiMixin.js";
-import packTypeService from "@/services/palletService.js";
+import { mapState, mapGetters, mapActions } from "vuex";
+import "@/validations/veeValidateExtensions.js";
+import { ValidationProvider, ValidationObserver } from "vee-validate";
 
 export default {
   name: "Pallet",
+  components: {
+    ValidationProvider,
+    ValidationObserver
+  },
   mixins: [notiMixin],
   props: {
     id: {
@@ -53,15 +62,12 @@ export default {
   data() {
     return {
       modalTitle: "",
-      show: true,
-      item: {},
-      internalErrorMsg: ""
+      show: true
     };
   },
   computed: {
-    hasInternalError() {
-      return !!this.internalErrorMsg;
-    }
+    ...mapGetters("pallet", ["defaultItem"]),
+    ...mapState("pallet", ["item"])
   },
   watch: {
     show(value) {
@@ -70,82 +76,36 @@ export default {
       }
     }
   },
-  created() {
-    if (this.id == 0) {
-      this.item = this.defaultItem();
-      this.modalTitle = "Add New Pallet";
-    } else {
-      this.item = this.getDetails();
-      this.modalTitle = "Update Pallet";
-    }
+  async created() {
+    this.modalTitle = this.id == 0 ? "Add New Pallet" : "Update Pallet Type";
+    await this.get(this.id);
   },
-  beforeCreate() {},
   methods: {
-    defaultItem() {
-      return {
-        id: 0,
-        PalletNum: "",
-        UpdatedWt: 0
-      };
-    },
+    ...mapActions("pallet", {
+      get: "getPallet",
+      create: "createPallet",
+      update: "updatePallet"
+    }),
     save() {
-      if (this.id == 0) {
-        this.cancelled = false;
-        return this.create();
-      } else {
-        return this.update();
-      }
-    },
-    async create() {
-      const noti = {
-        visible: true
-      };
+      this.$refs.form.validate().then(async success => {
+        if (!success) {
+          return;
+        }
+        if (this.id == 0) {
+          this.cancelled = false;
+          await this.create(this.item);
+        } else {
+          await this.update(this.item);
+        }
 
-      try {
-        await packTypeService.create(this.item);
-        noti.type = "success";
-        noti.content = "New Pallet added successfully";
         this.close();
-      } catch (error) {
-        noti.type = "error";
-        this.internalErrorMsg = error;
-        noti.content = error;
-      } finally {
-        this.showNotification(noti);
-      }
-    },
-    async update() {
-      const noti = {
-        visible: true
-      };
-
-      try {
-        await packTypeService.update(this.item.id, this.item);
-        noti.type = "success";
-        noti.content = "Pallet updated successfully";
-        this.close();
-      } catch (error) {
-        noti.type = "error";
-        noti.content = error;
-        this.internalErrorMsg = error;
-      } finally {
-        this.showNotification(noti);
-      }
+      });
     },
     cancel() {
-      this.cancelled = true;
       this.close();
     },
     close() {
-      this.show = false;
-    },
-    async getDetails() {
-      try {
-        const response = await packTypeService.getById(this.id);
-        this.item = response.data;
-      } catch (error) {
-        console.log(error);
-      }
+      this.$router.back();
     }
   },
   beforeRouteLeave(to, from, next) {

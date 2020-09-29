@@ -3,15 +3,18 @@
     <v-sheet class="elevation-1">
       <v-data-table
         v-model="checkedRows"
-        item-key="id"
+        item-key="PackagingTypeId"
         :headers="tblHeaders"
+        :footer-props="{
+          itemsPerPageOptions: [100, 200, 300, -1]
+        }"
         :items="items"
         :search="search"
         show-select
       >
         <template v-slot:top>
           <v-toolbar flat>
-            <ButtonDelete @click="remove()" />
+            <ButtonDelete @click="confirmDelete()" />
             <v-spacer></v-spacer>
             <ButtonAdd :to="{ name: 'PackagingTypeCreate' }" />
             <v-text-field
@@ -27,12 +30,18 @@
             ></v-text-field>
           </v-toolbar>
         </template>
-        <template v-slot:item.id="{ item }">
+        <template v-slot:[`item.EmptyPackageWt`]="{ item }">
+          {{ item.EmptyPackageWt }} Kg
+        </template>
+        <template v-slot:[`item.PackagingTypeId`]="{ item }">
           <v-btn
             fab
             x-small
             class="elevation-1"
-            :to="{ name: 'PackagingTypeUpdate', params: { id: item.id } }"
+            :to="{
+              name: 'PackagingTypeUpdate',
+              params: { id: item.PackagingTypeId }
+            }"
           >
             <v-icon color="success">mdi-pencil</v-icon>
           </v-btn>
@@ -47,7 +56,7 @@
 <script>
 import navbarMixins from "@/mixins/navbarMixins.js";
 import notiMixin from "@/mixins/notiMixin.js";
-import packTypeService from "@/services/packTypeService.js";
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "PackagingTypes",
@@ -55,9 +64,8 @@ export default {
   data() {
     return {
       pageTitle: "Packaging Types",
-      selected: [],
+      checkedRows: [],
       search: "",
-      items: [],
       tblHeaders: [
         {
           text: "Description",
@@ -66,28 +74,37 @@ export default {
           align: "left"
         },
         {
+          text: "Empty Pack. Wt",
+          value: "EmptyPackageWt",
+          sortable: true,
+          align: "center"
+        },
+        {
           text: "action",
-          value: "id",
+          value: "PackagingTypeId",
           align: "right"
         }
       ]
     };
   },
-  watch: {},
+  computed: {
+    ...mapState("packagingType", {
+      items: state => state.items
+    })
+  },
   async created() {
     await this.init();
   },
   methods: {
+    ...mapActions("packagingType", {
+      list: "listPackagingType",
+      delete: "deletePackagingTypes"
+    }),
     async init() {
-      try {
-        const response = await packTypeService.list();
-        this.items = response.data;
-        this.checkedRows = [];
-      } catch (error) {
-        console.log(error);
-      }
+      await this.list();
+      this.checkedRows = [];
     },
-    async remove() {
+    async confirmDelete() {
       if (this.checkedRows.length == 0) return;
 
       const msgBoxOpts = {
@@ -95,33 +112,18 @@ export default {
         content: `Do you want to delete selected items(${this.checkedRows.length})`,
         buttons: "deleteCancel"
       };
-      const noti = {
-        visible: true
-      };
 
       this.$refs.messagebox.open(msgBoxOpts, async () => {
-        try {
-          let params = this.checkedRows.map(a => a.id);
-          await packTypeService.delete(params);
-
-          noti.type = "success";
-          noti.content = `${params.length} ${
-            params.length == 1 ? "record" : "records"
-          } deleted successfully`;
-
-          this.init();
-        } catch (error) {
-          noti.type = "error";
-          this.internalErrorMsg = error;
-          noti.content = error;
-        } finally {
-          this.showNotification(noti);
-        }
+        await this.delete(this.checkedRows);
+        this.checkedRows = [];
       });
     }
   },
   beforeRouteUpdate(to, from, next) {
-    if (!from.meta.cancelled == true) this.init();
+    /**
+     * use the line of code below of no vuex
+     *   if (from.meta.cancelled === false) this.init();
+     */
     next();
   }
 };

@@ -1,7 +1,7 @@
 import service from "./service.js";
 
 export default {
-  rootURL: "/pallets",
+  rootURL: "/pallet",
   list() {
     let url = this.rootURL;
     return service.get(url);
@@ -18,25 +18,38 @@ export default {
     let url = `${this.rootURL}/${id}`;
     return service.put(url, obj);
   },
-  async delete(ids) {
+  async bulkDelete(ids) {
     if (ids.length == 0) return;
     let errors = [];
-    let url = "";
-    for (let i = 0; i <= ids.length - 1; i++) {
-      try {
-        url = `${this.rootURL}/${ids[i]}`;
-        await service.delete(url).then(a => console.log(a));
-      } catch (error) {
-        console.error(url, error);
-        errors.push(error);
-      }
+    let idsUrl = ids.join(",");
+    let url = `${this.rootURL}/BulkDelete/${idsUrl}`;
+    try {
+      await service.delete(url).then(a => console.log(a));
+    } catch (error) {
+      console.error(url, error);
+      errors.push(error);
+      throw errors;
     }
-
+  },
+  async delete(obj) {
+    if (obj == null) {
+      throw "Please select a record to Delete";
+    }
+    let errors = [];
+    let url = "";
+    try {
+      url = `${this.rootURL}/${obj}`;
+      await service.delete(url).then(a => console.log(a));
+    } catch (error) {
+      console.error(url, error);
+      errors.push(error);
+      throw errors;
+    }
     var response = {};
     if (errors.length == 0) {
       response = {
         status: "200",
-        statusText: `Deleting of ${ids.length} Pallet Successful`
+        statusText: `Deleting of "${obj.BinLocDesc}" Successful`
       };
     } else {
       response = {

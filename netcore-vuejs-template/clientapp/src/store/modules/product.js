@@ -67,7 +67,7 @@ export default {
     UPDATE_PRODUCT(state, payload) {
       payload.forEach(item => {
         let idx = state.receiving.items.map(a => a.id).indexOf(item.id);
-        state.receiving.items.splice(idx, 1);
+        state.receiving.items.splice(idx, 1, item);
       });
     }
   }

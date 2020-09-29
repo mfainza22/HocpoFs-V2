@@ -87,8 +87,6 @@ namespace WeighingSystemCoreHelpers.Attributes.Validations
                             propertyValue = propertyValue.ToString().Trim();
                         }
 
-
-
                         System.Text.RegularExpressions.Regex mtch;
                         mtch = new System.Text.RegularExpressions.Regex(RegExStrings.INVALID_CHAR);
                         if (mtch.Matches(propertyValue.ToString()).Count == 0) { return ValidationResult.Success; }
@@ -100,7 +98,7 @@ namespace WeighingSystemCoreHelpers.Attributes.Validations
                             strQuery.AppendLine($"where {validationContext.MemberName} = '{propertyValue}'");
                             strQuery.AppendLine($"and {PropertyIdFieldName} <> '{propertyId}'");
                             long result = DBContext.GetRecordCount(strQuery.ToString());
-                            isValid = result == 0 ? true : false;
+                            isValid = result == 0;
                         }
                         else
                         {
@@ -292,7 +290,6 @@ namespace WeighingSystemCoreHelpers.Attributes.Validations
 
     }
 
-
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true, Inherited = false)]
     public class ToleranceCheck : ValidationAttribute
     {
@@ -424,7 +421,7 @@ namespace WeighingSystemCoreHelpers.Attributes.Validations
                     acceptableTProc.AddRange(AcceptableTransactionProc.Split((char)44));
                 }
 
-                isValid = !(propertyValue == string.Empty || (AllowZero ? true : propertyValue == "0"));
+                isValid = !(propertyValue == string.Empty || (AllowZero || propertyValue == "0"));
 
                 if (isValid == false)
                 {
@@ -474,7 +471,6 @@ namespace WeighingSystemCoreHelpers.Attributes.Validations
         }
 
     }
-
 
     //[AttributeUsage(AttributeTargets.Property, AllowMultiple = true, Inherited = false)]
     //public class RequiredOnOut : ValidationAttribute

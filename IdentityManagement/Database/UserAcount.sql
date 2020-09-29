@@ -1,0 +1,20 @@
+CREATE TABLE [dbo].[UserAccounts](
+	[Id] [varchar](100) NULL,
+	[UserName] [varchar](50) NULL,
+	[UserPwdHash] [varchar](max) NULL,
+	[LastName] [varchar](50) NULL,
+	[MiddleName] [varchar](50) NULL,
+	[FirstName] [varchar](50) NULL,
+	[NameSuffix] [varchar](5) NULL,
+	[Department] [varchar](50) NULL,
+	[Position] [varchar](50) NULL,
+	[EmailAddress] [varchar](255) NULL,
+	[PhoneNumber] [varchar](255) NULL,
+	[AccessFailedCount] [smallint] NULL,
+	[DateCreated] [datetime] NOT NULL,
+	[RegisteredBy] [varchar](100) NULL,
+	[ModifiedBy] [varchar](100) NULL,
+	[IsActive] [bit] NOT NULL,
+	[FullName]  AS (replace(rtrim(((coalesce([FirstName]+' ','')+coalesce([MiddleName]+' ',''))+coalesce([LastName]+' ',''))+coalesce([NameSUffix],'')),'  ',' ')) PERSISTED,
+	[Status] [varchar](20) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]

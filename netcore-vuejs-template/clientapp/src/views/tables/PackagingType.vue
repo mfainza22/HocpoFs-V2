@@ -1,60 +1,89 @@
 <template>
   <div>
     <v-dialog v-model="show" max-width="500" persistent>
-      <v-form @submit.prevent="save">
+      <ValidationObserver ref="form" @submit.prevent="save">
         <v-card class="pa-5">
           <v-card-title>
-            <span>{{ modalTitle }} </span>
-            <div v-show="hasInternalError">
-              {{ internalErrorMsg }}
-            </div>
+            <span>{{ modalTitle }}</span>
           </v-card-title>
           <v-card-text>
             <v-row dense>
               <v-col cols="12">
-                <v-text-field
-                  v-model="item.PackagingTypeDesc"
-                  label="Packaging Type"
-                ></v-text-field>
+                <ValidationProvider
+                  v-slot="{ errors }"
+                  mode="lazy"
+                  name="Description"
+                  :rules="{
+                    required: true,
+                    max: 50,
+                    remote: { url: '/packagingtype/validatedesc', obj: item }
+                  }"
+                >
+                  <v-text-field
+                    v-model="item.PackagingTypeDesc"
+                    :error-messages="errors"
+                    label="Description"
+                    class="value-uppercase "
+                  ></v-text-field>
+                </ValidationProvider>
+              </v-col>
+              <v-col cols="12">
+                <ValidationProvider
+                  v-slot="{ errors }"
+                  mode="lazy"
+                  name="Empty Pack. Wt."
+                  :rules="{}"
+                >
+                  <v-text-field
+                    v-model.number="item.EmptyPackageWt"
+                    type="number"
+                    :error-messages="errors"
+                    label="Empty Pack. Wt."
+                    class="value-uppercase "
+                  ></v-text-field>
+                </ValidationProvider>
               </v-col>
             </v-row>
           </v-card-text>
           <v-card-actions fixed>
             <v-spacer></v-spacer>
-            <ButtonSave type="submit" class="mr-2" />
+            <ButtonSave type="submit" class="mr-2" @click="save" />
             <ButtonCancel @click="cancel()" />
           </v-card-actions>
         </v-card>
-      </v-form>
+      </ValidationObserver>
     </v-dialog>
   </div>
 </template>
 
 <script>
 import notiMixin from "@/mixins/notiMixin.js";
-import packTypeService from "@/services/packTypeService.js";
+import { mapState, mapGetters, mapActions } from "vuex";
+import "@/validations/veeValidateExtensions.js";
+import { ValidationProvider, ValidationObserver } from "vee-validate";
 
 export default {
   name: "PackagingType",
+  components: {
+    ValidationProvider,
+    ValidationObserver
+  },
   mixins: [notiMixin],
   props: {
     id: {
-      type: Number,
+      type: Number || String,
       default: 0
     }
   },
   data() {
     return {
       modalTitle: "",
-      show: true,
-      item: {},
-      internalErrorMsg: ""
+      show: true
     };
   },
   computed: {
-    hasInternalError() {
-      return !!this.internalErrorMsg;
-    }
+    ...mapGetters("packagingType", ["defaultItem"]),
+    ...mapState("packagingType", ["item"])
   },
   watch: {
     show(value) {
@@ -63,81 +92,37 @@ export default {
       }
     }
   },
-  created() {
-    if (this.id == 0) {
-      this.item = this.defaultItem();
-      this.modalTitle = "Add New Packaging Type";
-    } else {
-      this.item = this.getDetails();
-      this.modalTitle = "Update Packaging Type";
-    }
+  async created() {
+    this.modalTitle =
+      this.id == 0 ? "Add New Packaging Type" : "Update Packaging Type";
+    await this.get(this.id);
   },
-  beforeCreate() {},
   methods: {
-    defaultItem() {
-      return {
-        id: 0,
-        PackagingTypeDesc: ""
-      };
-    },
+    ...mapActions("packagingType", {
+      get: "getPackagingType",
+      create: "createPackagingType",
+      update: "updatePackagingType"
+    }),
     save() {
-      if (this.id == 0) {
-        this.cancelled = false;
-        return this.create();
-      } else {
-        return this.update();
-      }
-    },
-    async create() {
-      const noti = {
-        visible: true
-      };
+      this.$refs.form.validate().then(async success => {
+        if (!success) {
+          return;
+        }
+        if (this.id == 0) {
+          this.cancelled = false;
+          await this.create(this.item);
+        } else {
+          await this.update(this.item);
+        }
 
-      try {
-        await packTypeService.create(this.item);
-        noti.type = "success";
-        noti.content = "New Packaging Type added successfully";
         this.close();
-      } catch (error) {
-        noti.type = "error";
-        this.internalErrorMsg = error;
-        noti.content = error;
-      } finally {
-        this.showNotification(noti);
-      }
-    },
-    async update() {
-      const noti = {
-        visible: true
-      };
-
-      try {
-        await packTypeService.update(this.item.id, this.item);
-        noti.type = "success";
-        noti.content = "Packaging Type updated successfully";
-        this.close();
-      } catch (error) {
-        noti.type = "error";
-        noti.content = error;
-        this.internalErrorMsg = error;
-      } finally {
-        this.showNotification(noti);
-      }
+      });
     },
     cancel() {
-      this.cancelled = true;
       this.close();
     },
     close() {
-      this.show = false;
-    },
-    async getDetails() {
-      try {
-        const response = await packTypeService.getById(this.id);
-        this.item = response.data;
-      } catch (error) {
-        console.log(error);
-      }
+      this.$router.back();
     }
   },
   beforeRouteLeave(to, from, next) {

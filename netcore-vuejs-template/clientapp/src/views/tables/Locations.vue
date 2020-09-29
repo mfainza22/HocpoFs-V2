@@ -3,7 +3,7 @@
     <v-sheet class="elevation-1">
       <v-data-table
         v-model="checkedRows"
-        item-key="id"
+        item-key="LocationId"
         :headers="tblHeaders"
         :items="items"
         :search="search"
@@ -27,12 +27,12 @@
             ></v-text-field>
           </v-toolbar>
         </template>
-        <template v-slot:item.id="{ item }">
+        <template v-slot:[`item.LocationId`]="{ item }">
           <v-btn
             fab
             x-small
             class="elevation-1"
-            :to="{ name: 'LocationUpdate', params: { id: item.id } }"
+            :to="{ name: 'LocationUpdate', params: { id: item.LocationId } }"
           >
             <v-icon color="success">mdi-pencil</v-icon>
           </v-btn>
@@ -100,8 +100,8 @@ export default {
 
       this.$refs.messagebox.open(msgBoxOpts, async () => {
         try {
-          let params = this.checkedRows.map(a => a.id);
-          await locationService.delete(params);
+          let params = this.checkedRows.map(a => a.LocationId);
+          await locationService.bulkDelete(params);
 
           noti.type = "success";
           noti.content = `${params.length} ${
@@ -120,7 +120,7 @@ export default {
     }
   },
   beforeRouteUpdate(to, from, next) {
-    if (!from.meta.cancelled == true) this.init();
+    if (from.meta.cancelled === false) this.init();
     next();
   }
 };

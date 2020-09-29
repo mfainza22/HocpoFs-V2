@@ -1,21 +1,31 @@
 <template>
   <div>
     <v-dialog v-model="show" max-width="500" persistent>
-      <v-form @submit.prevent="save">
+      <ValidationObserver ref="form" tag="form" @submit.prevent="save">
         <v-card class="pa-5">
           <v-card-title>
-            <span>{{ modalTitle }} </span>
-            <div v-show="hasInternalError">
-              {{ internalErrorMsg }}
-            </div>
+            <span>{{ modalTitle }}</span>
+            <div v-show="hasInternalError">{{ internalErrorMsg }}</div>
           </v-card-title>
           <v-card-text>
             <v-row dense>
               <v-col cols="12">
-                <v-text-field
-                  v-model="item.LocationName"
-                  label="Location"
-                ></v-text-field>
+                <ValidationProvider
+                  v-slot="{ errors }"
+                  mode="lazy"
+                  name="Location Name"
+                  :rules="{
+                    required: true,
+                    max: 50,
+                    remote: { url: '/location/validatename', obj: item }
+                  }"
+                >
+                  <v-text-field
+                    v-model="item.LocationName"
+                    :error-messages="errors"
+                    label="Description"
+                  ></v-text-field>
+                </ValidationProvider>
               </v-col>
             </v-row>
           </v-card-text>
@@ -25,7 +35,7 @@
             <ButtonCancel @click="cancel()" />
           </v-card-actions>
         </v-card>
-      </v-form>
+      </ValidationObserver>
     </v-dialog>
   </div>
 </template>
@@ -33,9 +43,15 @@
 <script>
 import notiMixin from "@/mixins/notiMixin.js";
 import locationService from "@/services/locationService.js";
+import "@/validations/veeValidateExtensions.js";
+import { ValidationProvider, ValidationObserver } from "vee-validate";
 
 export default {
-  name: "Location",
+  name: "BinLocation",
+  components: {
+    ValidationProvider,
+    ValidationObserver
+  },
   mixins: [notiMixin],
   props: {
     id: {
@@ -66,25 +82,31 @@ export default {
   created() {
     if (this.id == 0) {
       this.item = this.defaultItem();
-      this.modalTitle = "Add Location";
+      this.modalTitle = "Add New Location";
     } else {
       this.item = this.getDetails();
-      this.modalTitle = "Update Bin Location";
+      this.modalTitle = "Update Location";
     }
   },
   methods: {
     defaultItem() {
       return {
-        id: 0,
-        BinLocationDesc: ""
+        LocationId: 0,
+        LocationName: ""
       };
     },
     save() {
-      if (this.id == 0) {
-        return this.create();
-      } else {
-        return this.update();
-      }
+      this.$refs.form.validate().then(success => {
+        if (!success) {
+          return;
+        }
+        if (this.id == 0) {
+          this.cancelled = false;
+          return this.create();
+        } else {
+          return this.update();
+        }
+      });
     },
     async create() {
       const noti = {
@@ -94,7 +116,7 @@ export default {
       try {
         await locationService.create(this.item);
         noti.type = "success";
-        noti.content = "New Location added successfully";
+        noti.content = "Location added successfully";
         this.close();
       } catch (error) {
         noti.type = "error";
@@ -110,7 +132,7 @@ export default {
       };
 
       try {
-        await locationService.update(this.item.id, this.item);
+        await locationService.update(this.item.LocationId, this.item);
         noti.type = "success";
         noti.content = "Location updated successfully";
         this.close();

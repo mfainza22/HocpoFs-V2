@@ -3,7 +3,7 @@ module.exports = {
     loaderOptions: {
       scss: {
         prependData:
-          ' @import "@/scss/_variables.scss";  @import "@/scss/global.scss"; @import "@/scss/vuebar.scss";'
+          ' @import "@/scss/_variables.scss"; @import "@/assets/fonts/fonts.scss";  @import "@/scss/global.scss"; @import "@/scss/vuebar.scss";'
       }
     }
   },

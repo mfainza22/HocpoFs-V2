@@ -16,29 +16,38 @@ namespace WeighingSystemCore.Repositories
 
         }
 
-        public BinLocation Create(BinLocation BinLocation)
+        public BinLocation Create(BinLocation binLocation)
         {
+            binLocation.BinLocDesc = binLocation.BinLocDesc.ToUpperCase();
 
             var parameters = new List<ParameterInfo>();
-            parameters.Add(new ParameterInfo() { ParameterName = nameof(BinLocation.BinLocationId).Parameterize(), ParameterValue = BinLocation.BinLocationId });
-            parameters.Add(new ParameterInfo() { ParameterName = nameof(BinLocation.BinLocDesc).Parameterize(), ParameterValue = BinLocation.BinLocDesc.ToUpper() });
+            parameters.Add(new ParameterInfo() { ParameterName = nameof(binLocation.BinLocationId).Parameterize(), ParameterValue = binLocation.BinLocationId });
+            parameters.Add(new ParameterInfo() { ParameterName = nameof(binLocation.BinLocDesc).Parameterize(), ParameterValue = binLocation.BinLocDesc });
 
             StringBuilder qry = new StringBuilder();
 
             qry.AppendLine("insert into BinLocations (");
-            qry.AppendLine(nameof(BinLocation.BinLocDesc));
+            qry.AppendLine(nameof(binLocation.BinLocDesc));
             qry.AppendLine(") values (");
-            qry.AppendLine(nameof(BinLocation.BinLocDesc).Parameterize());
+            qry.AppendLine(nameof(binLocation.BinLocDesc).Parameterize());
             qry.AppendLine(")");
             qry.AppendLine("select @@identity");
-            BinLocation.BinLocationId = DBContext.ExecuteQueryWithIdentityInt64(qry.ToString(), parameters);
-            return BinLocation;
+            binLocation.BinLocationId = DBContext.ExecuteQueryWithIdentityInt64(qry.ToString(), parameters);
+            return binLocation;
         }
 
-        public BinLocation Get([FromRoute] long id)
+        public BinLocation Get(long id)
         {
             if (id == 0) return null;
             string qry = "Select top 1 * from BinLocations where BinLocationId= '" + id + "'";
+            var result = DBContext.GetRecord<Models.BinLocation>(qry);
+            return result;
+        }
+
+        public BinLocation Get(string desc)
+        {
+            if (String.IsNullOrEmpty(desc)) return null;
+            string qry = "Select top 1 * from BinLocations where BinLocDesc= '" + desc + "'";
             var result = DBContext.GetRecord<Models.BinLocation>(qry);
             return result;
         }
@@ -57,18 +66,20 @@ namespace WeighingSystemCore.Repositories
             return results;
         }
 
-        public BinLocation Update(BinLocation BinLocationChanges)
+        public BinLocation Update(BinLocation binLocationChanges)
         {
+            binLocationChanges.BinLocDesc = binLocationChanges.BinLocDesc.ToUpperCase();
+
             var parameters = new List<ParameterInfo>();
-            parameters.Add(new ParameterInfo() { ParameterName = nameof(BinLocationChanges.BinLocationId).Parameterize(), ParameterValue = BinLocationChanges.BinLocationId });
-            parameters.Add(new ParameterInfo() { ParameterName = nameof(BinLocationChanges.BinLocDesc).Parameterize(), ParameterValue = BinLocationChanges.BinLocDesc.ToUpper() });
+            parameters.Add(new ParameterInfo() { ParameterName = nameof(binLocationChanges.BinLocationId).Parameterize(), ParameterValue = binLocationChanges.BinLocationId });
+            parameters.Add(new ParameterInfo() { ParameterName = nameof(binLocationChanges.BinLocDesc).Parameterize(), ParameterValue = binLocationChanges.BinLocDesc });
 
             StringBuilder qry = new StringBuilder();
             qry.AppendLine("Update BinLocations set");
-            qry.AppendLine($"{nameof(BinLocationChanges.BinLocDesc)}={nameof(BinLocationChanges.BinLocDesc).Parameterize()}");
-            qry.AppendLine($"where {nameof(BinLocationChanges.BinLocationId)} = {nameof(BinLocationChanges.BinLocationId).Parameterize()}");
-            int success = DBContext.ExecuteQuery(qry.ToString(), parameters);
-            return BinLocationChanges;
+            qry.AppendLine($"{nameof(binLocationChanges.BinLocDesc)}={nameof(binLocationChanges.BinLocDesc).Parameterize()}");
+            qry.AppendLine($"where {nameof(binLocationChanges.BinLocationId)} = {nameof(binLocationChanges.BinLocationId).Parameterize()}");
+            DBContext.ExecuteQuery(qry.ToString(), parameters);
+            return binLocationChanges;
         }
 
         public void Delete(string[] ids)
@@ -76,7 +87,7 @@ namespace WeighingSystemCore.Repositories
             string strIds = string.Format("'{0}'", string.Join("','", ids));
             StringBuilder qry = new StringBuilder();
             qry.AppendLine(string.Format("Delete from BinLocations where BinLocationId in  ({0})", strIds));
-            int success = DBContext.ExecuteQuery(qry.ToString());
+            DBContext.ExecuteQuery(qry.ToString());
         }
 
     }

@@ -1,63 +1,85 @@
 import axios from "axios";
-
+import store from "@/store/index";
 function logErr({ url, error }) {
-  console.error("An error encounted while fetching from :" + url, error);
+  if (process.env.NODE_ENV == "development")
+    console.error("An error encounted while fetching from :" + url, error);
 }
 
 export default {
   api() {
-    return axios.create({
-      baseURL: "http://localhost:3000",
+    const api = axios.create({
+      baseURL: `${window.origin}/api`,
       withCredentials: false, // This is the default
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      timeout: 4000
+      timeout: process.env.NODE_ENV ? 20000 : 10000
     });
+
+    if (process.env.NODE_ENV == "development") {
+      api.interceptors.request.use(
+        request => {
+          console.log("Starting Request", request);
+          return request;
+        },
+        error => {
+          console.log("Request Error:", error);
+        }
+      );
+
+      api.interceptors.response.use(
+        response => {
+          console.log("Response:", response);
+          return response;
+        },
+        error => {
+          console.log("Response Error:", error.response);
+          throw error;
+        }
+      );
+    }
+
+    return api;
   },
-  get(url) {
-    return this.api()
-      .get(url)
-      .then(response => {
-        return response;
-      })
-      .catch(error => {
-        logErr({ url, error });
-        throw error;
-      });
+  async get(url, obj) {
+    try {
+      store.dispatch("loaderSpinner/showSpinner");
+      return await this.api().get(url, obj);
+    } catch (error) {
+      logErr({ url, error });
+      throw error;
+    } finally {
+      store.dispatch("loaderSpinner/hideSpinner");
+    }
   },
-  post(url, data) {
-    return this.api()
-      .post(url, data)
-      .then(response => {
-        return response;
-      })
-      .catch(error => {
-        logErr({ url, error });
-        throw error;
-      });
+  async post(url, data) {
+    try {
+      const response = await this.api().post(url, data);
+      return response;
+    } catch (error) {
+      logErr({ url, error });
+      throw error;
+    } finally {
+      store.dispatch("loaderSpinner/hideSpinner");
+    }
   },
-  put(url, data) {
-    return this.api()
-      .put(url, data)
-      .then(response => {
-        return response;
-      })
-      .catch(error => {
-        logErr({ url, error });
-        throw error;
-      });
+  async put(url, data) {
+    try {
+      return await this.api().put(url, data);
+    } finally {
+      store.dispatch("loaderSpinner/hideSpinner");
+    }
   },
-  delete(url, config) {
-    return this.api()
-      .delete(url, config)
-      .then(response => {
-        return response;
-      })
-      .catch(error => {
-        logErr({ url, error });
-        throw error;
-      });
+  async delete(url, data) {
+    try {
+      const response = await this.api().delete(url, data);
+      return response;
+    } catch (error) {
+      logErr({ url, error });
+      throw error;
+    } finally {
+      store.dispatch("loaderSpinner/hideSpinner");
+    }
   }
 };

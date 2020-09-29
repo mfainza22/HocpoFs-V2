@@ -11,8 +11,8 @@
       small
       left
     >
-      {{ notification.icon }}</v-icon
-    >
+      {{ notification.icon }}
+    </v-icon>
     <span v-html="notification.content"></span>
     <v-btn
       v-if="notification.showClose"

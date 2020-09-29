@@ -1,30 +1,27 @@
 <template>
   <v-app>
+    <LoaderSpinner ref="loaderSpinner" />
     <NavBar ref="navbar" />
     <Notification />
     <v-content>
-      <keep-alive>
-        <router-view></router-view>
-      </keep-alive>
+      <!-- <transition name="slide" mode="out-in"> -->
+      <router-view></router-view>
+      <!-- </transition> -->
     </v-content>
   </v-app>
 </template>
 
 <script>
-var moment = require("moment");
+// var moment = require("moment");
+// var mm = moment.tz("America/Los_Angeles").format();
+// console.log(mm);
 
 export default {
   name: "App",
-  data: () => ({
-    //
-  }),
-  created() {
-    var mm = moment.tz("America/Los_Angeles").format();
-
-    console.log(mm);
-  },
+  watch: {},
+  created() {},
   mounted() {},
   methods: {}
 };
 </script>
-<style scoped></style>
+<style></style>

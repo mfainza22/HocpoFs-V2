@@ -54,5 +54,15 @@ namespace WeighingSystemCoreHelpers.Extensions
 
             return obj;
         }
+
+        public static string ToUpperCase(this string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                return "";
+            }
+
+            return value.ToUpper();
+        }
     }
 }

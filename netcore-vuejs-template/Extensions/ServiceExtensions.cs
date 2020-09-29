@@ -1,12 +1,8 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Principal;
-using System.Threading.Tasks;
 using WeighingSystemCore.Models;
 using WeighingSystemCore.Repositories;
 
@@ -52,17 +48,21 @@ namespace WeighingSystemCore.Extensions
         public static void ConfigureDataRepositories(this IServiceCollection services)
         {
             services.AddScoped<IBinLocationRepository, BinLocationRepository>();
-            //services.AddScoped<IPositionRepository, PositionRepository>();
-            //services.AddScoped<IDepartmentRepository, DepartmentRepository>();
-            //services.AddScoped<IClientContactRepository, ClientContactRepository>();
-            //services.AddScoped<ICustomerRepository, CustomerRepository>();
-
-            //services.AddScoped<ICategoryRepository, CategoryRepository>();
-            //services.AddScoped<IProductTypeRepository, ProductTypeRepository>();
-            //services.AddScoped<IProductRepository, ProductRepository>();
-            //services.AddScoped<ICategoryRepository, CategoryRepository>();
-            //services.AddScoped<IUnitRepository, UnitRepository>();
-
+            services.AddScoped<IPackagingTypeRepository, PackagingTypeRepository>();
+            services.AddScoped<IForkliftRepository, ForkliftRepository>();
+            services.AddScoped<IPalletRepository, PalletRepository>();
+            services.AddScoped<IRawMaterialRepository, RawMaterialRepository>();
+            services.AddScoped<IWarehouseRepository, WarehouseRepository>();
+            services.AddScoped<ILocationRepository, LocationRepository>();
+            services.AddScoped<IWeighingAreaRepository, WeighingAreaRepository>();
+            services.AddScoped<IShiftRepository, ShiftRepository>();
+            services.AddScoped<ITransferLimitAdjRepository, TransferLimitAdjRepository>();
+            services.AddScoped<ITransferLimitRepository, TransferLimitRepository>();
+            services.AddScoped<IDailyTransPrefixRepository, DailyTransPrefixRepository>();
+            services.AddScoped<IRefNumRepository, RefNumRepository>();
+            services.AddScoped<IClientMachineRepository, ClientMachineRepository>();
+            services.AddScoped<IGeneralSettingsRepository, GeneralSettingsRepository>();
+            services.AddScoped<ITransRecordRepository, TransRecordRepository>();
 
             //services.AddScoped<Services.StaticServices>();
         }
@@ -71,6 +71,14 @@ namespace WeighingSystemCore.Extensions
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSession(s => s.IdleTimeout = TimeSpan.FromMinutes(30));
+        }
+
+        public static void DisableAutoValidate(this IServiceCollection services)
+        {
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
         }
 
         //public static void ConfigureExceptionHandler(this IApplicationBuilder app, ILoggerManager logger)

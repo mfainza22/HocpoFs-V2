@@ -1,29 +1,34 @@
 <template>
-  <ul class="pagination">
-    <li>
-      <span>{{ getPageStart }} - {{ getPageLast }} of {{ itemCount }}</span>
-    </li>
-    <li>
-      <button class="pagination__nav" @click="prev()">
-        <i class="icon-prev" />
-      </button>
-    </li>
-    <!-- <li v-for="(pc, i) in pageCount" :key="i">
+  <div v-bind="$attrs">
+    <ul class="pagination">
+      <li>
+        <span class="caption"
+          >{{ getPageStart }} - {{ getPagStop }} of {{ itemsLength }}</span
+        >
+      </li>
+      <li>
+        <button class="pagination__nav" @click="prev()">
+          <i class="icon-prev" />
+        </button>
+      </li>
+      <!-- <li v-for="(pc, i) in pageCount" :key="i">
       <button class="pagination__item" @click="updateValue(pc)">
         {{ pc }}
       </button>
     </li> -->
-    <li>
-      <button class="pagination__nav" @click="next()">
-        <i class="icon-next" />
-      </button>
-    </li>
-  </ul>
+      <li>
+        <button class="pagination__nav" @click="next()">
+          <i class="icon-next" />
+        </button>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
 export default {
   name: "Pagination",
+  inheritAttrs: false,
   props: {
     value: {
       type: Number,
@@ -37,14 +42,14 @@ export default {
       type: Number,
       default: 50
     },
-    itemCount: {
+    itemsLength: {
       type: Number,
       default: 0
     }
   },
   computed: {
     getActualLastDiff() {
-      return this.value * this.pageSize - this.itemCount;
+      return this.value * this.pageSize - this.itemsLength;
     },
     getPageStart() {
       if (this.pageCount == 0) {
@@ -53,14 +58,14 @@ export default {
       if (this.value <= 1) {
         return 1;
       } else if (this.value > 1 && this.value < this.pageCount) {
-        return this.getPageLast - this.pageSize + 1;
+        return this.getPagStop - this.pageSize + 1;
       } else {
-        return this.getPageLast - this.pageSize + 1 + this.getActualLastDiff;
+        return this.getPagStop - this.pageSize + 1 + this.getActualLastDiff;
       }
     },
-    getPageLast() {
+    getPagStop() {
       let lr = this.value * this.pageSize;
-      lr = lr > this.itemCount ? this.itemCount : lr;
+      lr = lr > this.itemsLength ? this.itemsLength : lr;
       return lr;
     }
   },

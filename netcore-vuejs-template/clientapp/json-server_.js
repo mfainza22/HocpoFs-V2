@@ -38,16 +38,16 @@ const getQueryId = (resource, id) => {
   return query;
 };
 
-var getLastId = resource => {
-  var maxId = 0;
-  router.db
-    .get(resource.name)
-    .value()
-    .map(a => {
-      if (a[resource.key] > maxId) maxId = a[resource.key];
-    });
-  return maxId + 1;
-};
+//var getLastId = resource => {
+//  var maxId = 0;
+//  router.db
+//    .get(resource.name)
+//    .value()
+//    .map(a => {
+//      if (a[resource.key] > maxId) maxId = a[resource.key];
+//    });
+//  return maxId + 1;
+//};
 
 server.use(jsonServer.bodyParser);
 // server.use((req, res, next) => {

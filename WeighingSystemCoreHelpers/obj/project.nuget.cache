@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+SgDJDW0JIwPQbqK0x4Z1E7bbYr6u1DXNJkmN6v/9MmqVZqMnhjnstugf4ul7V9H1SyIKbwZZptlkwgVd1eFeA==",
+  "dgSpecHash": "VnQVuhGhzHmMduwwtfvZo7q+pdF7BGmPA2g1SY51YhsprJN8Gi1hKVfPVkW4kEpYzjnyZXcxPBjEi5PWNALJ5w==",
   "success": true,
-  "projectFilePath": "D:\\dir\\Projects\\TSI\\HOCPO FS\\HocpoFs\\WeighingSystemCoreHelpers\\WeighingSystemCoreHelpers.csproj",
+  "projectFilePath": "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\WeighingSystemCoreHelpers\\WeighingSystemCoreHelpers.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADM\\.nuget\\packages\\dapper\\2.0.4\\dapper.2.0.4.nupkg.sha512",
     "C:\\Users\\ADM\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",

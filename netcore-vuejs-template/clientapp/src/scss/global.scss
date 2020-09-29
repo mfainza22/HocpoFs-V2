@@ -1,3 +1,6 @@
+@import "transition";
+@import "typo";
+
 .children-mr-2,
 .v-toolbar.children-mr-2 > .v-toolbar__content {
   & > * {
@@ -7,6 +10,17 @@
   & > *:last-child {
     margin-right: 0;
   }
+}
+
+.px-0.v-toolbar {
+  .v-toolbar__content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+h2.fixed-height {
+  height: 36px;
 }
 
 .details-table.v-data-table tbody tr {
@@ -29,9 +43,43 @@
     transition: background 0.15s;
   }
 }
-
 .details-table-pagination.theme--light.v-pagination {
   .v-pagination__item--active {
     background-color: red;
   }
+}
+
+.shadowed {
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12) !important;
+}
+
+.v-input
+  .v-input__control
+  .v-input__slot
+  .v-text-field__slot
+  input::-webkit-outer-spin-button,
+.v-input
+  .v-input__control
+  .v-input__slot
+  .v-text-field__slot
+  input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.v-input__icon.v-input__icon--clear > button:before {
+  font-size: 85%;
+  margin-bottom: 25%;
+}
+
+.ellipsis {
+  display: block;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.title-sm {
+  font-size: 85% !important;
 }

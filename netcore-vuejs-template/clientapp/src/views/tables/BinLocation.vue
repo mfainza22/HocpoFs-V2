@@ -1,21 +1,31 @@
 <template>
   <div>
     <v-dialog v-model="show" max-width="500" persistent>
-      <v-form @submit.prevent="save">
+      <ValidationObserver ref="form" tag="form" @submit.prevent="save">
         <v-card class="pa-5">
           <v-card-title>
             <span>{{ modalTitle }} </span>
-            <div v-show="hasInternalError">
-              {{ internalErrorMsg }}
-            </div>
           </v-card-title>
           <v-card-text>
             <v-row dense>
               <v-col cols="12">
-                <v-text-field
-                  v-model="item.BinLocDesc"
-                  label="Location"
-                ></v-text-field>
+                <ValidationProvider
+                  v-slot="{ errors }"
+                  mode="lazy"
+                  name="Description"
+                  :rules="{
+                    required: true,
+                    max: 50,
+                    remote: { url: '/binlocation/validatedesc', obj: item }
+                  }"
+                >
+                  <v-text-field
+                    v-model="item.BinLocDesc"
+                    :error-messages="errors"
+                    class="value-uppercase "
+                    label="Description"
+                  ></v-text-field>
+                </ValidationProvider>
               </v-col>
             </v-row>
           </v-card-text>
@@ -25,17 +35,23 @@
             <ButtonCancel @click="cancel()" />
           </v-card-actions>
         </v-card>
-      </v-form>
+      </ValidationObserver>
     </v-dialog>
   </div>
 </template>
 
 <script>
 import notiMixin from "@/mixins/notiMixin.js";
-import binLocService from "@/services/binLocService.js";
+import { mapState, mapGetters, mapActions } from "vuex";
+import "@/validations/veeValidateExtensions.js";
+import { ValidationProvider, ValidationObserver } from "vee-validate";
 
 export default {
   name: "BinLocation",
+  components: {
+    ValidationProvider,
+    ValidationObserver
+  },
   mixins: [notiMixin],
   props: {
     id: {
@@ -47,14 +63,12 @@ export default {
     return {
       modalTitle: "",
       show: true,
-      item: {},
       internalErrorMsg: ""
     };
   },
   computed: {
-    hasInternalError() {
-      return !!this.internalErrorMsg;
-    }
+    ...mapGetters("binLocation", ["defaultItem"]),
+    ...mapState("binLocation", ["item"])
   },
   watch: {
     show(value) {
@@ -63,78 +77,37 @@ export default {
       }
     }
   },
-  created() {
-    if (this.id == 0) {
-      this.item = this.defaultItem();
-      this.modalTitle = "Add New Bin Location";
-    } else {
-      this.item = this.getDetails();
-      this.modalTitle = "Update Bin Location";
-    }
+  async created() {
+    this.modalTitle =
+      this.id == 0 ? "Add New Bin Location" : "Update Bin Location";
+    await this.get(this.id);
   },
   methods: {
-    defaultItem() {
-      return {
-        id: 0,
-        BinLocDesc: ""
-      };
-    },
+    ...mapActions("binLocation", {
+      get: "getBinLocation",
+      create: "createBinLocation",
+      update: "updateBinLocation"
+    }),
     save() {
-      if (this.id == 0) {
-        return this.create();
-      } else {
-        return this.update();
-      }
-    },
-    async create() {
-      const noti = {
-        visible: true
-      };
+      this.$refs.form.validate().then(async success => {
+        if (!success) {
+          return;
+        }
+        if (this.id == 0) {
+          this.cancelled = false;
+          await this.create(this.item);
+        } else {
+          await this.update(this.item);
+        }
 
-      try {
-        await binLocService.create(this.item);
-        noti.type = "success";
-        noti.content = "New Bin Location added successfully";
         this.close();
-      } catch (error) {
-        noti.type = "error";
-        this.internalErrorMsg = error;
-        noti.content = error;
-      } finally {
-        this.showNotification(noti);
-      }
-    },
-    async update() {
-      const noti = {
-        visible: true
-      };
-
-      try {
-        await binLocService.update(this.item.id, this.item);
-        noti.type = "success";
-        noti.content = "Bin Location updated successfully";
-        this.close();
-      } catch (error) {
-        noti.type = "error";
-        noti.content = error;
-        this.internalErrorMsg = error;
-      } finally {
-        this.showNotification(noti);
-      }
+      });
     },
     cancel() {
       this.close();
     },
     close() {
       this.$router.back();
-    },
-    async getDetails() {
-      try {
-        const response = await binLocService.getById(this.id);
-        this.item = response.data;
-      } catch (error) {
-        console.log(error);
-      }
     }
   },
   beforeRouteLeave(to, from, next) {

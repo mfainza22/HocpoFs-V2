@@ -11,7 +11,20 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
-    "vue/component-name-in-template-casing": ["error", "PascalCase"]
+    "vue/component-name-in-template-casing": ["error", "PascalCase"],
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "none",
+        "semi": true,
+        "tabWidth": 2,
+        "useTabs": false,
+        "endOfLine": "auto",
+        "bracketSpacing": true,
+        "jsxBracketSameLine": true,
+        "singleQuote": false
+      }
+    ]
   },
   "globals": {
     "$nuxt": true

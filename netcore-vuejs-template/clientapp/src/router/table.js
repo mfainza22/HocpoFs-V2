@@ -126,6 +126,24 @@ const routes = [
     ]
   },
   {
+    name: "WeighingAreas",
+    path: "/WeighingAreas",
+    component: () => import("../views/tables/WeighingAreas.vue"),
+    children: [
+      {
+        name: "WeighingAreaCreate",
+        path: "create",
+        component: () => import("../views/tables/WeighingArea.vue")
+      },
+      {
+        name: "WeighingAreaUpdate",
+        path: "update/:id",
+        props: true,
+        component: () => import("../views/tables/WeighingArea.vue")
+      }
+    ]
+  },
+  {
     name: "Shifts",
     path: "/Shifts",
     component: () => import("../views/tables/Shifts"),

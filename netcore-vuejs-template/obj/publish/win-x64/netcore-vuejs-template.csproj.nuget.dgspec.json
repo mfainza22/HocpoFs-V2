@@ -1,25 +1,105 @@
 {
   "format": 1,
   "restore": {
-    "D:\\dir\\Projects\\netcore-vuejs-template\\netcore-vuejs-template\\netcore-vuejs-template.csproj": {}
+    "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\netcore-vuejs-template\\netcore-vuejs-template.csproj": {}
   },
   "projects": {
-    "D:\\dir\\Projects\\netcore-vuejs-template\\netcore-vuejs-template\\netcore-vuejs-template.csproj": {
+    "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\DataAccessLayer\\DataAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\dir\\Projects\\netcore-vuejs-template\\netcore-vuejs-template\\netcore-vuejs-template.csproj",
-        "projectName": "NetcoreVuejs",
-        "projectPath": "D:\\dir\\Projects\\netcore-vuejs-template\\netcore-vuejs-template\\netcore-vuejs-template.csproj",
+        "projectUniqueName": "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\DataAccessLayer\\DataAccessLayer.csproj",
+        "projectName": "DataAccessLayer",
+        "projectPath": "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\DataAccessLayer\\DataAccessLayer.csproj",
         "packagesPath": "C:\\Users\\ADM\\.nuget\\packages\\",
-        "outputPath": "D:\\dir\\Projects\\netcore-vuejs-template\\netcore-vuejs-template\\obj\\publish\\win-x64\\",
+        "outputPath": "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\DataAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
           "C:\\Users\\ADM\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.4, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Analyzers": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.Options.ConfigurationExtensions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.6.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    },
+    "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\netcore-vuejs-template\\netcore-vuejs-template.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\netcore-vuejs-template\\netcore-vuejs-template.csproj",
+        "projectName": "WeighingSystemCore",
+        "projectPath": "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\netcore-vuejs-template\\netcore-vuejs-template.csproj",
+        "packagesPath": "C:\\Users\\ADM\\.nuget\\packages\\",
+        "outputPath": "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\netcore-vuejs-template\\obj\\publish\\win-x64\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ADM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -30,7 +110,14 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\DataAccessLayer\\DataAccessLayer.csproj": {
+                "projectPath": "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\DataAccessLayer\\DataAccessLayer.csproj"
+              },
+              "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\WeighingSystemCoreHelpers\\WeighingSystemCoreHelpers.csproj": {
+                "projectPath": "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\WeighingSystemCoreHelpers\\WeighingSystemCoreHelpers.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -42,6 +129,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Analyzers": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "NetBarcode": {
+              "target": "Package",
+              "version": "[1.0.8, )"
+            },
             "VueCliMiddleware": {
               "target": "Package",
               "version": "[3.0.0, )"
@@ -57,12 +152,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.2, 3.1.2]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -71,7 +160,91 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    },
+    "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\WeighingSystemCoreHelpers\\WeighingSystemCoreHelpers.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\WeighingSystemCoreHelpers\\WeighingSystemCoreHelpers.csproj",
+        "projectName": "WeighingSystemCoreHelpers",
+        "projectPath": "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\WeighingSystemCoreHelpers\\WeighingSystemCoreHelpers.csproj",
+        "packagesPath": "C:\\Users\\ADM\\.nuget\\packages\\",
+        "outputPath": "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\WeighingSystemCoreHelpers\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ADM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\DataAccessLayer\\DataAccessLayer.csproj": {
+                "projectPath": "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\DataAccessLayer\\DataAccessLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
+            "Microsoft.AspNetCore.Http.Extensions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Analyzers": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

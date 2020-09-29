@@ -1,0 +1,33 @@
+.slide {
+  &-enter-active,
+  &-leave-active {
+    transition: transform 0.5s;
+  }
+  &-leave-to {
+    transform: translateX(-100%);
+  }
+  &-enter {
+    transform: translateX(100%);
+  }
+  &-enter-to,
+  &-leave {
+    transform: translateX(0);
+  }
+}
+
+.slide-reverse {
+  &-enter-active,
+  &-leave-active {
+    transition: transform 0.5s;
+  }
+  &-leave-to {
+    transform: translateX(-100%);
+  }
+  &-enter {
+    transform: translateX(100%);
+  }
+  &-enter-to,
+  &-leave {
+    transform: translateX(0%);
+  }
+}

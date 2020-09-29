@@ -1111,6 +1111,36 @@
           }
         }
       },
+      "Microsoft.Win32.SystemEvents/4.5.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "2.0.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netcoreapp2.0/Microsoft.Win32.SystemEvents.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "NetBarcode/1.0.8": {
+        "type": "package",
+        "dependencies": {
+          "System.Drawing.Common": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/NetBarcode.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NetBarcode.dll": {}
+        }
+      },
       "Newtonsoft.Json/12.0.2": {
         "type": "package",
         "compile": {
@@ -1540,6 +1570,29 @@
         },
         "compile": {
           "ref/netstandard1.5/_._": {}
+        }
+      },
+      "System.Drawing.Common/4.5.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "2.0.0",
+          "Microsoft.Win32.SystemEvents": "4.5.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Drawing.Common.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Drawing.Common.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netcoreapp2.0/System.Drawing.Common.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netcoreapp2.0/System.Drawing.Common.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
         }
       },
       "System.Dynamic.Runtime/4.3.0": {
@@ -2512,6 +2565,7 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Dapper": "2.0.4",
+          "Microsoft.AspNetCore.Mvc.Analyzers": "2.2.0",
           "Microsoft.Extensions.Configuration": "2.2.0",
           "Microsoft.Extensions.Configuration.Json": "2.2.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "2.2.0",
@@ -2532,6 +2586,7 @@
           "Microsoft.AspNetCore.Http": "2.2.2",
           "Microsoft.AspNetCore.Http.Extensions": "2.2.0",
           "Microsoft.AspNetCore.Mvc": "2.2.0",
+          "Microsoft.AspNetCore.Mvc.Analyzers": "2.2.0",
           "Newtonsoft.Json": "12.0.2"
         },
         "compile": {
@@ -3742,6 +3797,39 @@
         "version.txt"
       ]
     },
+    "Microsoft.Win32.SystemEvents/4.5.0": {
+      "sha512": "LuI1oG+24TUj1ZRQQjM5Ew73BKnZE5NZ/7eAdh1o8ST5dPhUnJvIkiIn2re3MwnkRy6ELRnvEbBxHP8uALKhJw==",
+      "type": "package",
+      "path": "microsoft.win32.systemevents/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Win32.SystemEvents.dll",
+        "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll",
+        "microsoft.win32.systemevents.4.5.0.nupkg.sha512",
+        "microsoft.win32.systemevents.nuspec",
+        "ref/net461/Microsoft.Win32.SystemEvents.dll",
+        "ref/netstandard2.0/Microsoft.Win32.SystemEvents.dll",
+        "runtimes/win/lib/netcoreapp2.0/Microsoft.Win32.SystemEvents.dll",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "NetBarcode/1.0.8": {
+      "sha512": "2afq5rG0rvmSWqGECyaLOPZZ2tXepjVYUaJ4Ty1tmqbGnbrckRP0x0lbPmePI3m83cyHlwLGfC/LylmGBxcJ9g==",
+      "type": "package",
+      "path": "netbarcode/1.0.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/NetBarcode.dll",
+        "lib/netstandard2.0/NetBarcode.xml",
+        "netbarcode.1.0.8.nupkg.sha512",
+        "netbarcode.nuspec"
+      ]
+    },
     "Newtonsoft.Json/12.0.2": {
       "sha512": "rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
       "type": "package",
@@ -4832,6 +4920,39 @@
         "ref/xamarinwatchos10/_._",
         "system.diagnostics.tracing.4.3.0.nupkg.sha512",
         "system.diagnostics.tracing.nuspec"
+      ]
+    },
+    "System.Drawing.Common/4.5.0": {
+      "sha512": "AiJFxxVPdeITstiRS5aAu8+8Dpf5NawTMoapZ53Gfirml24p7HIfhjmCRxdXnmmf3IUA3AX3CcW7G73CjWxW/Q==",
+      "type": "package",
+      "path": "system.drawing.common/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net461/System.Drawing.Common.dll",
+        "lib/netstandard2.0/System.Drawing.Common.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net461/System.Drawing.Common.dll",
+        "ref/netstandard2.0/System.Drawing.Common.dll",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "runtimes/unix/lib/netcoreapp2.0/System.Drawing.Common.dll",
+        "runtimes/win/lib/netcoreapp2.0/System.Drawing.Common.dll",
+        "system.drawing.common.4.5.0.nupkg.sha512",
+        "system.drawing.common.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "System.Dynamic.Runtime/4.3.0": {
@@ -7640,30 +7761,27 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "DataAccessLayer >= 1.0.0",
+      "Microsoft.AspNetCore.Mvc.Analyzers >= 2.2.0",
+      "NetBarcode >= 1.0.8",
       "VueCliMiddleware >= 3.0.0",
       "WeighingSystemCoreHelpers >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ADM\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\ADM\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\dir\\Projects\\TSI\\HOCPO FS\\HocpoFs\\netcore-vuejs-template\\netcore-vuejs-template.csproj",
+      "projectUniqueName": "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\netcore-vuejs-template\\netcore-vuejs-template.csproj",
       "projectName": "WeighingSystemCore",
-      "projectPath": "D:\\dir\\Projects\\TSI\\HOCPO FS\\HocpoFs\\netcore-vuejs-template\\netcore-vuejs-template.csproj",
+      "projectPath": "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\netcore-vuejs-template\\netcore-vuejs-template.csproj",
       "packagesPath": "C:\\Users\\ADM\\.nuget\\packages\\",
-      "outputPath": "D:\\dir\\Projects\\TSI\\HOCPO FS\\HocpoFs\\netcore-vuejs-template\\obj\\",
+      "outputPath": "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\netcore-vuejs-template\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
         "C:\\Users\\ADM\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -7675,11 +7793,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\dir\\Projects\\TSI\\HOCPO FS\\HocpoFs\\DataAccessLayer\\DataAccessLayer.csproj": {
-              "projectPath": "D:\\dir\\Projects\\TSI\\HOCPO FS\\HocpoFs\\DataAccessLayer\\DataAccessLayer.csproj"
+            "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\DataAccessLayer\\DataAccessLayer.csproj": {
+              "projectPath": "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\DataAccessLayer\\DataAccessLayer.csproj"
             },
-            "D:\\dir\\Projects\\TSI\\HOCPO FS\\HocpoFs\\WeighingSystemCoreHelpers\\WeighingSystemCoreHelpers.csproj": {
-              "projectPath": "D:\\dir\\Projects\\TSI\\HOCPO FS\\HocpoFs\\WeighingSystemCoreHelpers\\WeighingSystemCoreHelpers.csproj"
+            "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\WeighingSystemCoreHelpers\\WeighingSystemCoreHelpers.csproj": {
+              "projectPath": "D:\\dir\\tsi\\HOCPO-FS\\HocpoFs-V2\\WeighingSystemCoreHelpers\\WeighingSystemCoreHelpers.csproj"
             }
           }
         }
@@ -7693,6 +7811,14 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Analyzers": {
+            "target": "Package",
+            "version": "[2.2.0, )"
+          },
+          "NetBarcode": {
+            "target": "Package",
+            "version": "[1.0.8, )"
+          },
           "VueCliMiddleware": {
             "target": "Package",
             "version": "[3.0.0, )"
@@ -7708,12 +7834,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.1.2, 3.1.2]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -7722,7 +7842,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

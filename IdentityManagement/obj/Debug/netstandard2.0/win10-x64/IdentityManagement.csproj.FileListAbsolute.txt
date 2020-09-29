@@ -1,0 +1,14 @@
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\win10-x64\IdentityManagement.deps.json
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\win10-x64\IdentityManagement.dll
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\win10-x64\IdentityManagement.pdb
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\win10-x64\DataAccessLayer.dll
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\win10-x64\WeighingSystemCoreHelpers.dll
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\win10-x64\WeighingSystemCoreHelpers.pdb
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Debug\netstandard2.0\win10-x64\DataAccessLayer.pdb
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\win10-x64\IdentityManagement.csprojAssemblyReference.cache
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\win10-x64\IdentityManagement.csproj.CoreCompileInputs.cache
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\win10-x64\IdentityManagement.AssemblyInfoInputs.cache
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\win10-x64\IdentityManagement.AssemblyInfo.cs
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\win10-x64\IdentityManagement.csproj.CopyComplete
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\win10-x64\IdentityManagement.dll
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Debug\netstandard2.0\win10-x64\IdentityManagement.pdb

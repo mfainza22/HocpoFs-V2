@@ -1,0 +1,14 @@
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Release\netstandard2.0\IdentityManagement.deps.json
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Release\netstandard2.0\IdentityManagement.dll
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Release\netstandard2.0\IdentityManagement.pdb
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Release\netstandard2.0\DataAccessLayer.dll
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Release\netstandard2.0\WeighingSystemCoreHelpers.dll
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Release\netstandard2.0\WeighingSystemCoreHelpers.pdb
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\bin\Release\netstandard2.0\DataAccessLayer.pdb
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Release\netstandard2.0\IdentityManagement.csprojAssemblyReference.cache
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Release\netstandard2.0\IdentityManagement.csproj.CoreCompileInputs.cache
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Release\netstandard2.0\IdentityManagement.AssemblyInfoInputs.cache
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Release\netstandard2.0\IdentityManagement.AssemblyInfo.cs
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Release\netstandard2.0\IdentityManagement.csproj.CopyComplete
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Release\netstandard2.0\IdentityManagement.dll
+C:\STORAGE\Dir\Terriniel Scales System\PAPERLAND\WeighingSystemCore\IdentityManagement\obj\Release\netstandard2.0\IdentityManagement.pdb

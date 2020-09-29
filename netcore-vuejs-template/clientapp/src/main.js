@@ -3,8 +3,14 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
+import VueSticky from "vue-sticky-js";
+Vue.use(VueSticky.install);
+
 import Vuebar from "vuebar";
 Vue.use(Vuebar);
+
+Vue.config.productionTip = false;
+
 Vue.use(require("vue-moment"));
 
 import upperFirst from "lodash/upperFirst";
@@ -35,6 +41,7 @@ export const EventBus = new Vue();
 Vue.config.productionTip = false;
 
 new Vue({
+  mode: "history",
   router,
   store,
   vuetify,

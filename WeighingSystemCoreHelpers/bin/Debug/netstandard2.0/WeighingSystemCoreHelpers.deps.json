@@ -13,6 +13,7 @@
           "Microsoft.AspNetCore.Http": "2.2.2",
           "Microsoft.AspNetCore.Http.Extensions": "2.2.0",
           "Microsoft.AspNetCore.Mvc": "2.2.0",
+          "Microsoft.AspNetCore.Mvc.Analyzers": "2.2.0",
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "12.0.2"
         },
@@ -1930,6 +1931,7 @@
       "DataAccessLayer/1.0.0": {
         "dependencies": {
           "Dapper": "2.0.4",
+          "Microsoft.AspNetCore.Mvc.Analyzers": "2.2.0",
           "Microsoft.Extensions.Configuration": "2.2.0",
           "Microsoft.Extensions.Configuration.Json": "2.2.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "2.2.0",
